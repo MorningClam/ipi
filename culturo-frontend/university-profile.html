@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maplewood University - Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen bg-gray-50">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white h-screen flex flex-col border-r border-gray-200 flex-shrink-0">
+            <!-- Logo -->
+            <div class="flex items-center px-4 py-6 border-b border-gray-200">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">C</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Culturo</span>
+                </div>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="px-4 py-4 border-b border-gray-200">
+                <div class="relative">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <p class="px-3 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                <a href="find-events.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+                <p class="px-3 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                </a>
+                <a href="groups.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="messages.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="px-4 py-6 border-t border-gray-200">
+                <a href="profile.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm" id="sidebar-avatar">U</div>
+                    <div>
+                        <p id="sidebar-user-name" class="font-semibold text-gray-800 group-hover:text-indigo-600">Loading...</p>
+                        <p id="sidebar-user-email" class="text-sm text-gray-500">Loading...</p>
+                    </div>
+                </a>
+                <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="max-w-7xl mx-auto">
+                <!-- University Header -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 mb-8">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <img class="w-32 h-32 rounded-lg object-cover" src="https://placehold.co/200x200/818cf8/ffffff?text=MU" alt="Maplewood University">
+                        <div class="flex-1 text-center md:text-left">
+                            <h1 class="text-3xl font-bold text-gray-900 mb-2">Maplewood University</h1>
+                            <p class="text-lg text-gray-600 mb-4">A prestigious institution fostering global education and research excellence since 1827.</p>
+                            <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Public University</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Research Intensive</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">International</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                                Add to Targets
+                            </button>
+                            <button class="border border-gray-300 hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
+                                Message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- About -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">About Maplewood University</h2>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Maplewood University is a world-renowned institution committed to excellence in education, research, and community engagement. 
+                                With over 195 years of academic tradition, we continue to shape the future through innovative programs and cutting-edge research.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                Our international partnerships span across 6 continents, offering students and faculty unique opportunities for global collaboration 
+                                and cultural exchange. We pride ourselves on fostering an inclusive environment that welcomes students from all backgrounds.
+                            </p>
+                        </div>
+
+                        <!-- Programs -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Featured Programs</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Business Administration</h3>
+                                    <p class="text-sm text-gray-600">Comprehensive MBA and undergraduate programs with global perspective.</p>
+                                </div>
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Engineering & Technology</h3>
+                                    <p class="text-sm text-gray-600">Cutting-edge programs in computer science, aerospace, and sustainable engineering.</p>
+                                </div>
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h3 class="font-semibold text-gray-800 mb-2">International Relations</h3>
+                                    <p class="text-sm text-gray-600">Interdisciplinary approach to global politics, economics, and diplomacy.</p>
+                                </div>
+                                <div class="p-4 border border-gray-200 rounded-lg">
+                                    <h3 class="font-semibold text-gray-800 mb-2">Health Sciences</h3>
+                                    <p class="text-sm text-gray-600">Medical, nursing, and public health programs with clinical excellence.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Partnership Opportunities -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Partnership Opportunities</h2>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                                        <i data-lucide="users" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Student Recruitment</h3>
+                                        <p class="text-sm text-gray-600">Direct admission pathways and agent partnerships</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="p-2 bg-green-100 text-green-600 rounded-lg">
+                                        <i data-lucide="arrow-left-right" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Student Exchange</h3>
+                                        <p class="text-sm text-gray-600">Semester and year abroad programs</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                                    <div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                                        <i data-lucide="microscope" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Research Collaboration</h3>
+                                        <p class="text-sm text-gray-600">Joint research projects and faculty exchange</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-6">
+                        <!-- Quick Stats -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4">Quick Stats</h3>
+                            <dl class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <dt class="text-gray-500">Founded</dt>
+                                    <dd class="font-semibold text-gray-800">1827</dd>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <dt class="text-gray-500">Students</dt>
+                                    <dd class="font-semibold text-gray-800">45,000+</dd>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <dt class="text-gray-500">International Students</dt>
+                                    <dd class="font-semibold text-gray-800">12,000+</dd>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <dt class="text-gray-500">Countries Represented</dt>
+                                    <dd class="font-semibold text-gray-800">150+</dd>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <dt class="text-gray-500">Active Partnerships</dt>
+                                    <dd class="font-semibold text-gray-800 text-lg">42</dd>
+                                </div>
+                            </dl>
+                        </div>
+
+                        <!-- Key Contacts -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Key Contacts</h3>
+                            <div class="space-y-4">
+                                <a href="profile.html" class="flex items-center gap-3 group">
+                                    <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/fbbf24/ffffff?text=DC" alt="User Avatar">
+                                    <div>
+                                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600">David Chen</p>
+                                        <p class="text-sm text-gray-500">Partnership Director</p>
+                                    </div>
+                                </a>
+                                <a href="profile.html" class="flex items-center gap-3 group">
+                                    <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/a5b4fc/ffffff?text=EJ" alt="User Avatar">
+                                    <div>
+                                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600">Emily Johnson</p>
+                                        <p class="text-sm text-gray-500">Admissions Officer</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Location</h3>
+                            <div class="space-y-2">
+                                <p class="text-gray-600">123 University Avenue</p>
+                                <p class="text-gray-600">Toronto, Ontario M5S 1A1</p>
+                                <p class="text-gray-600">Canada</p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-700 text-sm font-medium">View on Map</a>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Recent Activity</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm text-gray-800">New partnership with Berlin University</p>
+                                        <p class="text-xs text-gray-500">2 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm text-gray-800">Updated exchange program details</p>
+                                        <p class="text-xs text-gray-500">1 week ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm text-gray-800">Hosted virtual partnership fair</p>
+                                        <p class="text-xs text-gray-500">2 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            loadUserData();
+        });
+
+        async function loadUserData() {
+            try {
+                const token = localStorage.getItem('authToken');
+                if (!token) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+
+                const response = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    const initials = user.full_name ? 
+                        user.full_name.split(' ').map(n => n[0]).join('').toUpperCase() : 'U';
+                    
+                    document.getElementById('sidebar-user-name').textContent = user.full_name || 'User';
+                    document.getElementById('sidebar-user-email').textContent = user.email || 'user@example.com';
+                    document.getElementById('sidebar-avatar').textContent = initials;
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+    </script>
+</body>
+</html>

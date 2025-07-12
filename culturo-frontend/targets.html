@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Targets - International Partnership Institute</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .animate-count {
+            transition: all 0.5s ease-in-out;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .highlight-animation {
+            animation: highlightPulse 2s infinite;
+        }
+        @keyframes highlightPulse {
+            0%,
+            100% {
+                background-color: rgba(99, 102, 241, 0.1);
+            }
+            50% {
+                background-color: rgba(99, 102, 241, 0.2);
+            }
+        }
+        .sidebar-dark {
+            background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+        }
+
+        .animate-pulse-dot { 
+            animation: pulse 2s infinite; 
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen bg-gray-50">
+        <!-- Clean Sidebar -->
+        <aside class="w-72 sidebar-dark flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                        <i data-lucide="handshake" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">IPI</h1>
+                        <p class="text-gray-400 text-sm">Dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-700">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-800 border-transparent text-white placeholder-gray-400 focus:bg-gray-700 focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+
+                <!-- Find Section -->
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+
+                <!-- Workspace Section -->
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                    <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-1 rounded-full" id="nav-partnerships-count">0</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-white bg-gray-800 rounded-lg">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                    <span class="ml-auto bg-green-600 text-white text-xs px-2 py-1 rounded-full" id="nav-targets-count">0</span>
+                </a>
+                <a href="tasks.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="check-square" class="w-5 h-5"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                    <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse-dot" id="notification-badge">3</span>
+                </a>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="p-4 border-t border-gray-700">
+                <a href="profile.html" class="flex items-center gap-3 p-3 hover:bg-gray-800 rounded-lg transition-colors group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="sidebar-avatar">GH</div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-semibold text-white group-hover:text-blue-200 transition-colors truncate" id="sidebar-user-name">George Hogan</p>
+                        <p class="text-sm text-gray-400 truncate" id="sidebar-org-name">International Partnership Institute</p>
+                    </div>
+                </a>
+                <button onclick="window.location.href='account-settings.html'" class="flex items-center gap-3 px-3 py-2 mt-3 w-full text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors text-sm">
+                    <i data-lucide="settings" class="w-4 h-4"></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="max-w-7xl mx-auto p-8">
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900">Target Pipeline</h1>
+                        <p class="text-gray-500 mt-1">Track and manage your partnership prospects</p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-4 md:mt-0">
+                        <button onclick="exportTargets()" class="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-700 px-4 py-2.5 rounded-lg hover:bg-gray-50 font-medium">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Export
+                        </button>
+                        <a href="add-target.html" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-all transform hover:scale-105">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                            Add Target
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Total Targets</p>
+                                <p class="text-3xl font-bold text-gray-900" id="total-targets">0</p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="target" class="w-6 h-6 text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">High Priority</p>
+                                <p class="text-3xl font-bold text-gray-900" id="high-priority">0</p>
+                            </div>
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="alert-circle" class="w-6 h-6 text-red-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">In Progress</p>
+                                <p class="text-3xl font-bold text-gray-900" id="in-progress">0</p>
+                            </div>
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="clock" class="w-6 h-6 text-yellow-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm font-medium text-gray-600">Due This Week</p>
+                                <p class="text-3xl font-bold text-gray-900" id="due-this-week">0</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="calendar" class="w-6 h-6 text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-8">
+                    <div class="flex flex-wrap gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                            <select id="priority-filter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">All Priorities</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Stage</label>
+                            <select id="stage-filter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="">All Stages</option>
+                                <option value="RESEARCH">Research</option>
+                                <option value="INITIAL_CONTACT">Initial Contact</option>
+                                <option value="FOLLOW_UP">Follow Up</option>
+                                <option value="PROPOSAL">Proposal</option>
+                                <option value="NEGOTIATION">Negotiation</option>
+                                <option value="AGREEMENT">Agreement</option>
+                                <option value="CLOSED">Closed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loading-state" class="bg-white rounded-2xl shadow-sm border border-gray-200 p-12 text-center">
+                    <div class="inline-flex items-center gap-2 text-gray-600">
+                        <div class="w-6 h-6 border-2 border-gray-300 border-t-indigo-600 rounded-full animate-spin"></div>
+                        <span>Loading targets...</span>
+                    </div>
+                </div>
+
+                <!-- Targets Table -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50 border-b border-gray-200">
+                                <tr>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Organization</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Type</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Priority</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Stage</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Next Action</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Due Date</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="targets-table" class="bg-white divide-y divide-gray-200">
+                                <!-- Dynamic content loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Empty State -->
+                    <div id="empty-state" class="hidden text-center py-12">
+                        <div class="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="target" class="w-12 h-12 text-gray-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">No targets found</h3>
+                        <p class="text-gray-500 mb-6">Get started by adding your first partnership target.</p>
+                        <a href="add-target.html" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-all">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                            Add Target
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        let allTargets = [];
+        let filteredTargets = [];
+
+        // Load user data and sidebar info
+        async function loadUserData() {
+            const token = localStorage.getItem('token') || 
+                         localStorage.getItem('authToken') || 
+                         localStorage.getItem('access_token') || 
+                         localStorage.getItem('culturo_access_token');
+                         
+            if (!token) {
+                // Use default data if no token
+                document.getElementById("sidebar-user-name").textContent = "George Hogan";
+                document.getElementById("sidebar-org-name").textContent = "International Partnership Institute";
+                document.getElementById("sidebar-avatar").textContent = "GH";
+                return;
+            }
+            
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/users/me", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    
+                    // Update sidebar user info
+                    document.getElementById("sidebar-user-name").textContent = user.full_name || "User";
+                    document.getElementById("sidebar-org-name").textContent = user.organization?.name || "No Organization";
+                    
+                    // Update avatar with initials
+                    if (user.full_name) {
+                        const initials = user.full_name.split(' ').map(n => n[0]).join('').toUpperCase();
+                        document.getElementById("sidebar-avatar").textContent = initials;
+                    }
+                } else {
+                    // Use defaults if API fails
+                    document.getElementById("sidebar-user-name").textContent = "George Hogan";
+                    document.getElementById("sidebar-org-name").textContent = "International Partnership Institute";
+                    document.getElementById("sidebar-avatar").textContent = "GH";
+                }
+            } catch (error) {
+                console.error("Error loading user data:", error);
+                // Use defaults if error occurs
+                document.getElementById("sidebar-user-name").textContent = "George Hogan";
+                document.getElementById("sidebar-org-name").textContent = "International Partnership Institute";
+                document.getElementById("sidebar-avatar").textContent = "GH";
+            }
+        }
+
+        // Load sidebar badge counts
+        async function loadSidebarData() {
+            const token = localStorage.getItem('token') || 
+                         localStorage.getItem('authToken') || 
+                         localStorage.getItem('access_token') || 
+                         localStorage.getItem('culturo_access_token');
+                         
+            if (!token) return;
+            
+            try {
+                // Load partnerships count
+                const partnershipsResponse = await fetch('http://127.0.0.1:8000/api/partnerships', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const partnerships = partnershipsResponse.ok ? await partnershipsResponse.json() : [];
+                
+                // Load targets count  
+                const targetsResponse = await fetch('http://127.0.0.1:8000/api/targets', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const targets = targetsResponse.ok ? await targetsResponse.json() : [];
+                
+                // Update badge counts
+                document.getElementById('nav-partnerships-count').textContent = partnerships.length;
+                document.getElementById('nav-targets-count').textContent = targets.length;
+                document.getElementById('notification-badge').textContent = '3'; // placeholder
+            } catch (error) {
+                console.log('Could not load sidebar counts:', error);
+            }
+        }
+
+        // Load targets from API
+        async function loadTargets() {
+            const token = localStorage.getItem('token') || 
+                         localStorage.getItem('authToken') || 
+                         localStorage.getItem('access_token') || 
+                         localStorage.getItem('culturo_access_token');
+                         
+            if (!token) {
+                // Show empty state if no token
+                allTargets = [];
+                filteredTargets = [];
+                renderTargets();
+                updateStats();
+                document.getElementById("loading-state").style.display = "none";
+                return;
+            }
+            
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/targets", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+
+                if (response.ok) {
+                    allTargets = await response.json();
+                    filteredTargets = [...allTargets];
+                    renderTargets();
+                    updateStats();
+                } else {
+                    console.error("Failed to load targets");
+                    allTargets = [];
+                    filteredTargets = [];
+                    renderTargets();
+                }
+            } catch (error) {
+                console.error("Error loading targets:", error);
+                allTargets = [];
+                filteredTargets = [];
+                renderTargets();
+            } finally {
+                document.getElementById("loading-state").style.display = "none";
+            }
+        }
+
+        // Update statistics cards
+        function updateStats() {
+            const total = allTargets.length;
+            const highPriority = allTargets.filter((t) => t.priority === "HIGH").length;
+            const inProgress = allTargets.filter((t) => ["INITIAL_CONTACT", "FOLLOW_UP", "PROPOSAL", "NEGOTIATION"].includes(t.stage)).length;
+            
+            // Calculate due this week
+            const oneWeekFromNow = new Date();
+            oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+            const dueThisWeek = allTargets.filter((t) => {
+                if (!t.reminder_date) return false;
+                const dueDate = new Date(t.reminder_date);
+                return dueDate <= oneWeekFromNow && dueDate >= new Date();
+            }).length;
+
+            document.getElementById("total-targets").textContent = total;
+            document.getElementById("high-priority").textContent = highPriority;
+            document.getElementById("in-progress").textContent = inProgress;
+            document.getElementById("due-this-week").textContent = dueThisWeek;
+        }
+
+        // Filter targets
+        function filterTargets() {
+            const priority = document.getElementById("priority-filter").value;
+            const stage = document.getElementById("stage-filter").value;
+
+            filteredTargets = allTargets.filter((t) => {
+                return (
+                    (!priority || t.priority === priority) &&
+                    (!stage || t.stage === stage)
+                );
+            });
+
+            renderTargets();
+        }
+
+        function renderTargets() {
+            const tbody = document.getElementById("targets-table");
+            const emptyState = document.getElementById("empty-state");
+
+            if (filteredTargets.length === 0) {
+                tbody.innerHTML = "";
+                emptyState.classList.remove("hidden");
+                return;
+            }
+
+            emptyState.classList.add("hidden");
+
+            tbody.innerHTML = filteredTargets
+                .map(
+                    (t) => `
+                <tr class="hover:bg-gray-50 cursor-pointer" onclick="viewTarget('${t.id}')">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                                <i data-lucide="building" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">${t.target_organization_name}</div>
+                                <div class="text-sm text-gray-500">${t.target_country || "Unknown"}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${t.target_type || "N/A"}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getPriorityColor(
+                            t.priority
+                        )}">${t.priority || "Medium"}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStageColor(
+                            t.stage
+                        )}">${t.stage || "Research"}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${t.next_action || "No action set"}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${
+                        t.reminder_date ? new Date(t.reminder_date).toLocaleDateString() : "No date set"
+                    }</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <button onclick="event.stopPropagation(); editTarget('${t.id}')" class="text-indigo-600 hover:text-indigo-900">
+                                <i data-lucide="edit" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="event.stopPropagation(); deleteTarget('${t.id}')" class="text-red-600 hover:text-red-900">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>`
+                )
+                .join("");
+
+            // Re-initialize Lucide icons for new content
+            lucide.createIcons();
+        }
+
+        // Helper functions for styling
+        function getPriorityColor(priority) {
+            switch (priority) {
+                case "HIGH":
+                    return "bg-red-100 text-red-800";
+                case "MEDIUM":
+                    return "bg-yellow-100 text-yellow-800";
+                case "LOW":
+                    return "bg-green-100 text-green-800";
+                default:
+                    return "bg-gray-100 text-gray-800";
+            }
+        }
+
+        function getStageColor(stage) {
+            switch (stage) {
+                case "RESEARCH":
+                    return "bg-blue-100 text-blue-800";
+                case "INITIAL_CONTACT":
+                    return "bg-purple-100 text-purple-800";
+                case "FOLLOW_UP":
+                    return "bg-yellow-100 text-yellow-800";
+                case "PROPOSAL":
+                    return "bg-orange-100 text-orange-800";
+                case "NEGOTIATION":
+                    return "bg-pink-100 text-pink-800";
+                case "AGREEMENT":
+                    return "bg-green-100 text-green-800";
+                case "CLOSED":
+                    return "bg-gray-100 text-gray-800";
+                default:
+                    return "bg-gray-100 text-gray-800";
+            }
+        }
+
+        // Action functions
+        function viewTarget(id) {
+            window.location.href = `target-details.html?id=${id}`;
+        }
+
+        function editTarget(id) {
+            window.location.href = `edit-target.html?id=${id}`;
+        }
+
+        async function deleteTarget(id) {
+            if (!confirm("Are you sure you want to delete this target?")) {
+                return;
+            }
+
+            const token = localStorage.getItem('token') || 
+                         localStorage.getItem('authToken') || 
+                         localStorage.getItem('access_token') || 
+                         localStorage.getItem('culturo_access_token');
+                         
+            if (!token) {
+                alert("Authentication required to delete targets");
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/api/targets/${id}`, {
+                    method: "DELETE",
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+
+                if (response.ok) {
+                    await loadTargets(); // Reload the list
+                    alert("Target deleted successfully!");
+                } else {
+                    alert("Failed to delete target");
+                }
+            } catch (error) {
+                console.error("Error deleting target:", error);
+                alert("Error deleting target");
+            }
+        }
+
+        function exportTargets() {
+            const csv = [
+                ["Organization", "Type", "Priority", "Stage", "Next Action", "Due Date", "Notes"],
+                ...filteredTargets.map((t) => [
+                    t.target_organization_name,
+                    t.target_type || "",
+                    t.priority || "",
+                    t.stage || "",
+                    t.next_action || "",
+                    t.reminder_date ? new Date(t.reminder_date).toLocaleDateString() : "",
+                    t.notes || "",
+                ]),
+            ]
+                .map((row) => row.map((field) => `"${field.replace(/"/g, '""')}"`).join(","))
+                .join("\n");
+
+            const blob = new Blob([csv], { type: "text/csv" });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "targets.csv";
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Event listeners
+        document.getElementById("priority-filter").addEventListener("change", filterTargets);
+        document.getElementById("stage-filter").addEventListener("change", filterTargets);
+
+        // Initialize page
+        document.addEventListener("DOMContentLoaded", async function() {
+            const token = localStorage.getItem('token') || 
+                         localStorage.getItem('authToken') || 
+                         localStorage.getItem('access_token') || 
+                         localStorage.getItem('culturo_access_token');
+            
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            await loadUserData();
+            await loadSidebarData();
+            await loadTargets();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

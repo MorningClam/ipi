@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Details - Culturo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Modern Sidebar Navigation -->
+        <aside class="w-64 bg-white shadow-sm border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                <a href="dashboard.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-200">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-100 border-transparent focus:bg-white focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Nav Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 bg-indigo-50 text-indigo-700 font-semibold rounded-lg">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                </a>
+                <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+            
+            <!-- User Profile -->
+            <div class="px-4 py-6 border-t border-gray-200">
+                <a href="profile.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm" id="sidebar-avatar">GH</div>
+                    <div>
+                        <p id="sidebar-user-name" class="font-semibold text-gray-800 group-hover:text-indigo-600">George Hogan</p>
+                        <p id="sidebar-org-name" class="text-sm text-gray-500">Global University</p>
+                    </div>
+                </a>
+                <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="max-w-7xl mx-auto p-8">
+                <!-- Back Navigation -->
+                <div class="mb-6">
+                    <a href="organization-partnerships.html" class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span>Back to Partnerships</span>
+                    </a>
+                </div>
+
+                <!-- Partnership Header -->
+                <div class="bg-white rounded-2xl shadow-sm p-8 mb-8">
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span id="partnership-status-badge" class="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full">Active Partnership</span>
+                                <span class="text-gray-400">•</span>
+                                <span id="partnership-type" class="text-gray-600 text-sm">Student Exchange Agreement</span>
+                            </div>
+                            <h1 id="partnership-title" class="text-3xl font-bold text-gray-900 mb-2">Global University & Maplewood University</h1>
+                            <p id="partnership-description" class="text-gray-600 text-lg">Recruitment and articulation agreement for Business programs facilitating student transfer pathways.</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="sharePartnership()" class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                                <i data-lucide="share-2" class="w-4 h-4"></i>
+                                <span>Share</span>
+                            </button>
+                            <a href="edit-partnership.html" class="inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+                                <i data-lucide="edit" class="w-4 h-4"></i>
+                                <span>Edit Partnership</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-12 gap-8">
+                    <!-- Left Column: Activity & Communication -->
+                    <div class="col-span-12 lg:col-span-8 space-y-8">
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Active Since</p>
+                                        <p id="partnership-created" class="text-2xl font-bold text-gray-900">Jan 2024</p>
+                                    </div>
+                                    <div class="p-3 bg-blue-100 rounded-lg">
+                                        <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Documents</p>
+                                        <p id="documents-count" class="text-2xl font-bold text-gray-900">0</p>
+                                    </div>
+                                    <div class="p-3 bg-green-100 rounded-lg">
+                                        <i data-lucide="file-text" class="w-5 h-5 text-green-600"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Messages</p>
+                                        <p id="messages-count" class="text-2xl font-bold text-gray-900">0</p>
+                                    </div>
+                                    <div class="p-3 bg-purple-100 rounded-lg">
+                                        <i data-lucide="message-circle" class="w-5 h-5 text-purple-600"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Communication Timeline -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-bold text-gray-900">Communication Timeline</h2>
+                                <button onclick="toggleCommunicationForm()" class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                                    <i data-lucide="plus" class="w-4 h-4"></i>
+                                    <span>Add Update</span>
+                                </button>
+                            </div>
+
+                            <!-- Add Communication Form (Hidden by default) -->
+                            <div id="communication-form-container" class="hidden mb-6 p-4 bg-gray-50 rounded-lg">
+                                <form id="communication-form">
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Add Communication Entry</label>
+                                        <textarea id="communication-content" rows="3" placeholder="Enter your update, note, or communication log..." class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                                            Add Entry
+                                        </button>
+                                        <button type="button" onclick="toggleCommunicationForm()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Timeline -->
+                            <div id="communication-timeline" class="space-y-6">
+                                <!-- Placeholder content -->
+                                <div class="text-center py-8">
+                                    <i data-lucide="message-circle" class="w-12 h-12 text-gray-300 mx-auto mb-4"></i>
+                                    <p class="text-gray-500">Communication log coming soon</p>
+                                    <p class="text-sm text-gray-400">Feature will be available in future updates</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Documents Section -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-bold text-gray-900">Partnership Documents</h2>
+                                <label class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 cursor-pointer">
+                                    <i data-lucide="upload" class="w-4 h-4"></i>
+                                    <span>Upload Document</span>
+                                    <input type="file" class="hidden" id="document-upload" accept=".pdf,.doc,.docx,.txt">
+                                </label>
+                            </div>
+
+                            <div id="documents-list" class="space-y-4">
+                                <!-- Placeholder content -->
+                                <div class="text-center py-8">
+                                    <i data-lucide="file-text" class="w-12 h-12 text-gray-300 mx-auto mb-4"></i>
+                                    <p class="text-gray-500">Document management coming soon</p>
+                                    <p class="text-sm text-gray-400">Feature will be available in future updates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Partnership Details -->
+                    <div class="col-span-12 lg:col-span-4 space-y-6">
+                        <!-- Partnership Details -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Partnership Details</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Status</span>
+                                    <span id="partnership-status" class="px-2 py-1 bg-green-100 text-green-800 text-sm font-medium rounded">Active</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Agreement Type</span>
+                                    <span id="partnership-agreement-type" class="text-gray-900 font-medium">Student Exchange</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Start Date</span>
+                                    <span id="partnership-start-date" class="text-gray-900 font-medium">Jan 15, 2024</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">End Date</span>
+                                    <span id="partnership-end-date" class="text-gray-900 font-medium">Dec 31, 2025</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">Internal Manager</span>
+                                    <span id="partnership-manager" class="text-gray-900 font-medium">Dr. Sarah Johnson</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Contacts -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Key Contacts</h3>
+                            <div class="space-y-4">
+                                <!-- Your Organization Contact -->
+                                <div>
+                                    <h4 id="your-org-label" class="text-sm font-semibold text-gray-600 mb-3">From Global University</h4>
+                                    <div class="flex items-center gap-3">
+                                        <div id="contact-avatar" class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-semibold">GH</div>
+                                        <div>
+                                            <p id="contact-name" class="font-semibold text-gray-900">George Hogan</p>
+                                            <p class="text-sm text-gray-500">Partnership Manager</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Partner Organization Contact -->
+                                <div>
+                                    <h4 id="partner-org-label" class="text-sm font-semibold text-gray-600 mb-3">From Partner Organization</h4>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-semibold">DC</div>
+                                        <div>
+                                            <p class="font-semibold text-gray-900">David Chen</p>
+                                            <p class="text-sm text-gray-500">International Programs Director</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">Quick Actions</h3>
+                            <div class="space-y-3">
+                                <button onclick="sendMessage()" class="w-full flex items-center gap-3 px-4 py-3 text-left bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
+                                    <i data-lucide="message-square" class="w-5 h-5 text-blue-600"></i>
+                                    <div>
+                                        <p class="font-medium text-blue-900">Send Message</p>
+                                        <p class="text-sm text-blue-600">Communicate with partners</p>
+                                    </div>
+                                </button>
+                                <button onclick="scheduleReminder()" class="w-full flex items-center gap-3 px-4 py-3 text-left bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors">
+                                    <i data-lucide="calendar-plus" class="w-5 h-5 text-purple-600"></i>
+                                    <div>
+                                        <p class="font-medium text-purple-900">Schedule Reminder</p>
+                                        <p class="text-sm text-purple-600">Set partnership follow-up</p>
+                                    </div>
+                                </button>
+                                <button onclick="generateReport()" class="w-full flex items-center gap-3 px-4 py-3 text-left bg-green-50 hover:bg-green-100 rounded-lg transition-colors">
+                                    <i data-lucide="file-bar-chart" class="w-5 h-5 text-green-600"></i>
+                                    <div>
+                                        <p class="font-medium text-green-900">Generate Report</p>
+                                        <p class="text-sm text-green-600">Export partnership summary</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let currentPartnershipId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Get partnership ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            currentPartnershipId = urlParams.get('id');
+
+            if (!currentPartnershipId) {
+                // If no ID, redirect to partnerships page
+                window.location.href = 'organization-partnerships.html';
+                return;
+            }
+
+            // Initialize icons and load data
+            init();
+        });
+
+        async function init() {
+            await loadUserData();
+            await loadPartnershipDetails();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Initialize icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function setupEventListeners() {
+            const uploadInput = document.getElementById('document-upload');
+            if (uploadInput) {
+                uploadInput.addEventListener('change', handleDocumentUpload);
+            }
+
+            const commForm = document.getElementById('communication-form');
+            if (commForm) {
+                commForm.addEventListener('submit', handleCommunicationSubmit);
+            }
+        }
+
+        async function loadUserData() {
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    const initials = user.full_name ? 
+                        user.full_name.split(' ').map(n => n[0]).join('').toUpperCase() : 'GH';
+                    
+                    document.getElementById('sidebar-user-name').textContent = user.full_name || 'George Hogan';
+                    document.getElementById('sidebar-avatar').textContent = initials;
+                    
+                    if (user.organization_id) {
+                        const orgResponse = await fetch(`http://127.0.0.1:8000/api/organizations/${user.organization_id}`, {
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        
+                        if (orgResponse.ok) {
+                            const org = await orgResponse.json();
+                            document.getElementById('sidebar-org-name').textContent = org.name || 'Global University';
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        async function loadPartnershipDetails() {
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch(`http://127.0.0.1:8000/api/partnerships/${currentPartnershipId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const partnership = await response.json();
+                
+                // Update header
+                const statusColor = partnership.status === 'ACTIVE' ? 'bg-green-100 text-green-800' : 
+                                  partnership.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800';
+                const statusText = partnership.status === 'ACTIVE' ? 'Active Partnership' : 
+                                 partnership.status === 'PENDING' ? 'Partnership Under Review' : 'Partnership';
+
+                document.getElementById('partnership-status-badge').className = `px-3 py-1 text-sm font-semibold rounded-full ${statusColor}`;
+                document.getElementById('partnership-status-badge').textContent = statusText;
+                
+                // Get partner name safely
+                const partnerName = partnership.partner_organization?.name || 
+                                  partnership.organization_two?.name || 
+                                  partnership.organization_one?.name || 
+                                  'Partner Organization';
+                
+                document.getElementById('partnership-title').textContent = 
+                    `Global University & ${partnerName}`;
+
+                document.getElementById('partnership-type').textContent = partnership.agreement_type || 'Partnership Agreement';
+                document.getElementById('partnership-description').textContent = 
+                    partnership.description || 'Partnership agreement for collaborative initiatives and student exchange programs.';
+
+                // Update details
+                document.getElementById('partnership-status').textContent = partnership.status || 'PENDING';
+                document.getElementById('partnership-agreement-type').textContent = partnership.agreement_type || 'General Partnership';
+                document.getElementById('partnership-end-date').textContent = 
+                    partnership.agreement_end_date ? new Date(partnership.agreement_end_date).toLocaleDateString() : 'No end date';
+                document.getElementById('partnership-manager').textContent = 
+                    partnership.internal_manager?.full_name || 'Not assigned';
+
+                // Update created date
+                if (partnership.created_at) {
+                    const created = new Date(partnership.created_at);
+                    document.getElementById('partnership-created').textContent = created.toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        year: 'numeric' 
+                    });
+                } else {
+                    document.getElementById('partnership-created').textContent = 'Recently';
+                }
+
+                // Update organization labels
+                document.getElementById('your-org-label').textContent = `From Global University`;
+                document.getElementById('partner-org-label').textContent = `From ${partnerName}`;
+
+                // Refresh icons after content update
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+
+            } catch (error) {
+                console.error('Error loading partnership details:', error);
+                showError('Failed to load partnership details');
+            }
+        }
+
+        function toggleCommunicationForm() {
+            showNotification('Communication feature coming soon', 'info');
+        }
+
+        function handleCommunicationSubmit(e) {
+            e.preventDefault();
+            showNotification('Communication feature coming soon', 'info');
+        }
+
+        function handleDocumentUpload(e) {
+            showNotification('Document upload feature coming soon', 'info');
+            e.target.value = '';
+        }
+
+        function sharePartnership() {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Partnership Details',
+                    url: url
+                });
+            } else if (navigator.clipboard) {
+                navigator.clipboard.writeText(url);
+                showNotification('Partnership link copied to clipboard', 'success');
+            } else {
+                showNotification('Sharing feature not supported', 'info');
+            }
+        }
+
+        function sendMessage() {
+            window.location.href = 'messages.html';
+        }
+
+        function scheduleReminder() {
+            showNotification('Reminder scheduling feature coming soon', 'info');
+        }
+
+        function generateReport() {
+            showNotification('Report generation feature coming soon', 'info');
+        }
+
+        function showError(message) {
+            document.querySelector('main').innerHTML = `
+                <div class="max-w-2xl mx-auto text-center py-12">
+                    <i data-lucide="alert-circle" class="w-16 h-16 text-red-300 mx-auto mb-4"></i>
+                    <h1 class="text-2xl font-bold text-gray-900 mb-2">Error Loading Partnership</h1>
+                    <p class="text-gray-500 mb-6">${message}</p>
+                    <a href="organization-partnerships.html" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-indigo-700">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Partnerships
+                    </a>
+                </div>
+            `;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function showNotification(message, type) {
+            const colors = {
+                success: 'bg-green-600',
+                error: 'bg-red-600',
+                info: 'bg-blue-600'
+            };
+
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg text-white font-medium z-50 ${colors[type] || colors.info}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

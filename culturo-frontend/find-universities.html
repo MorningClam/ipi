@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Universities - IPI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+        }
+        
+        .sidebar-dark {
+            background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+        }
+
+        .animate-pulse-dot { 
+            animation: pulse 2s infinite; 
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Clean Sidebar -->
+        <aside class="w-72 sidebar-dark flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                        <i data-lucide="handshake" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-white">IPI</h1>
+                        <p class="text-gray-400 text-sm">Dashboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-700">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-800 border-transparent text-white placeholder-gray-400 focus:bg-gray-700 focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+
+                <!-- Find Section -->
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-white bg-gray-800 rounded-lg">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+
+                <!-- Workspace Section -->
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                    <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-1 rounded-full" id="nav-partnerships-count">0</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                    <span class="ml-auto bg-green-600 text-white text-xs px-2 py-1 rounded-full" id="nav-targets-count">0</span>
+                </a>
+                <a href="tasks.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="check-square" class="w-5 h-5"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                    <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse-dot" id="notification-badge">3</span>
+                </a>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="p-4 border-t border-gray-700">
+                <a href="profile.html" class="flex items-center gap-3 p-3 hover:bg-gray-800 rounded-lg transition-colors group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="sidebar-avatar">GH</div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-semibold text-white group-hover:text-blue-200 transition-colors truncate" id="sidebar-user-name">George Hogan</p>
+                        <p class="text-sm text-gray-400 truncate" id="sidebar-org-name">International Partnership Institute</p>
+                    </div>
+                </a>
+                <button onclick="window.location.href='account-settings.html'" class="flex items-center gap-3 px-3 py-2 mt-3 w-full text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors text-sm">
+                    <i data-lucide="settings" class="w-4 h-4"></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="max-w-7xl mx-auto p-8">
+                <!-- Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Find Universities</h1>
+                    <p class="text-gray-600">Discover world-class universities and institutions for partnership opportunities</p>
+                </div>
+
+                <!-- Quick Stats Panel -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-200">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">1,847</div>
+                        <div class="text-gray-600">Universities Listed</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-200">
+                        <div class="text-3xl font-bold text-green-600 mb-2">89</div>
+                        <div class="text-gray-600">Countries</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-200">
+                        <div class="text-3xl font-bold text-orange-600 mb-2" id="university-partnerships-count-top">16</div>
+                        <div class="text-gray-600">Your Partnerships</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center border border-gray-200">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">247</div>
+                        <div class="text-gray-600">Partner Ready</div>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 mb-8">
+                    <div class="flex flex-col lg:flex-row gap-4 mb-4">
+                        <div class="flex-1">
+                            <div class="relative">
+                                <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                                <input type="text" id="university-search" placeholder="Search universities by name, location, ranking, or specialization..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <select id="country-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <option>All Countries</option>
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Canada</option>
+                                <option>Australia</option>
+                                <option>Germany</option>
+                                <option>France</option>
+                                <option>Netherlands</option>
+                                <option>Singapore</option>
+                            </select>
+                            <select id="program-type-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                <option>All Program Types</option>
+                                <option>Undergraduate</option>
+                                <option>Graduate</option>
+                                <option>Doctoral</option>
+                                <option>Professional</option>
+                                <option>Certificate</option>
+                                <option>Online</option>
+                            </select>
+                            <button id="search-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 font-semibold">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Filters -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm font-medium text-gray-600">Quick filters:</span>
+                        <button class="filter-btn active px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium" data-filter="top-ranked">Top Ranked</button>
+                        <button class="filter-btn px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="accepting-agents">Accepting Agents</button>
+                        <button class="filter-btn px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="public">Public Universities</button>
+                        <button class="filter-btn px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="private">Private Universities</button>
+                        <button class="filter-btn px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200" data-filter="clear-all">Clear All</button>
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="flex items-center justify-between mb-6">
+                    <p class="text-gray-600" id="results-summary">Showing <span class="font-semibold">236</span> universities</p>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-gray-600">Sort by:</span>
+                        <select id="sort-filter" class="px-3 py-1 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-indigo-500">
+                            <option value="ranking">World Ranking</option>
+                            <option value="alphabetical">Alphabetical</option>
+                            <option value="newest">Recently Added</option>
+                            <option value="country">Country</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Featured Universities -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Featured Universities</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Featured University 1 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-blue-200 hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-xl">MIT</div>
+                                <div class="flex-1">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 class="text-lg font-bold text-gray-900">Massachusetts Institute of Technology</h3>
+                                            <p class="text-gray-600">Cambridge, Massachusetts, USA</p>
+                                            <div class="flex items-center gap-2 mt-1">
+                                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">Rank #1</span>
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-semibold">Accepting Agents</span>
+                                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">STEM Focus</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-blue-600">#1</div>
+                                            <p class="text-xs text-gray-500">QS World Ranking</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">World-renowned for engineering, technology, and innovation. Strong partnerships with international education providers.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-600">
+                                    <p><strong>Students:</strong> 11,934</p>
+                                    <p><strong>International:</strong> 41%</p>
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-semibold">
+                                    Add to Targets
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Featured University 2 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border-2 border-purple-200 hover:shadow-md transition-shadow">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white font-bold text-xl">OX</div>
+                                <div class="flex-1">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 class="text-lg font-bold text-gray-900">University of Oxford</h3>
+                                            <p class="text-gray-600">Oxford, England, UK</p>
+                                            <div class="flex items-center gap-2 mt-1">
+                                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-semibold">Rank #4</span>
+                                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-semibold">Partner Ready</span>
+                                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Historic</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-purple-600">#4</div>
+                                            <p class="text-xs text-gray-500">QS World Ranking</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">One of the world's oldest and most prestigious universities. Excellence across all disciplines with strong global partnerships.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-gray-600">
+                                    <p><strong>Students:</strong> 24,515</p>
+                                    <p><strong>International:</strong> 45%</p>
+                                </div>
+                                <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 font-semibold">
+                                    Add to Targets
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All Universities List -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">All Universities</h2>
+                    <div id="universities-list" class="space-y-4">
+                        <!-- University Card 1 -->
+                        <div class="university-card bg-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row items-start md:items-center gap-6 hover:shadow-md transition-shadow">
+                            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-xl">ST</div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-1">Stanford University</h3>
+                                        <p class="text-gray-600 mb-2">Stanford, California, USA</p>
+                                        <p class="text-gray-700 text-sm mb-2">Leading research university known for innovation in technology, business, and medicine.</p>
+                                        <div class="flex items-center gap-2">
+                                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-semibold">Rank #3</span>
+                                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">17,249 students</span>
+                                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Private</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-center">
+                                        <div class="w-24">
+                                            <p class="text-2xl font-bold text-red-600">#3</p>
+                                            <p class="text-xs text-gray-500">QS Ranking</p>
+                                        </div>
+                                        <button class="bg-gray-100 text-gray-700 font-semibold px-4 py-2 rounded-lg text-sm hover:bg-gray-200">
+                                            Add to Targets
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- University Card 2 -->
+                        <div class="university-card bg-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row items-start md:items-center gap-6 hover:shadow-md transition-shadow">
+                            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white font-bold text-xl">UT</div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-1">University of Toronto</h3>
+                                        <p class="text-gray-600 mb-2">Toronto, Ontario, Canada</p>
+                                        <p class="text-gray-700 text-sm mb-2">Canada's top university with excellence in research and diverse international programs.</p>
+                                        <div class="flex items-center gap-2">
+                                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-semibold">Rank #21</span>
+                                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">97,000+ students</span>
+                                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Public</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-center">
+                                        <div class="w-24">
+                                            <p class="text-2xl font-bold text-green-600">#21</p>
+                                            <p class="text-xs text-gray-500">QS Ranking</p>
+                                        </div>
+                                        <button class="bg-gray-100 text-gray-700 font-semibold px-4 py-2 rounded-lg text-sm hover:bg-gray-200">
+                                            Add to Targets
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Loading indicator -->
+                        <div id="loading-indicator" class="text-center py-8" style="display: none;">
+                            <div class="inline-flex items-center gap-2 text-gray-600">
+                                <div class="w-6 h-6 border-2 border-gray-300 border-t-indigo-600 rounded-full animate-spin"></div>
+                                <span>Loading universities...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Check authentication first
+        document.addEventListener('DOMContentLoaded', async function() {
+            const token = localStorage.getItem('token') || localStorage.getItem('authToken') || localStorage.getItem('access_token') || localStorage.getItem('culturo_access_token');
+            
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Load user data
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    
+                    // Update sidebar user info
+                    const sidebarAvatar = document.getElementById('sidebar-avatar');
+                    const sidebarName = document.getElementById('sidebar-user-name');
+                    const sidebarOrg = document.getElementById('sidebar-org-name');
+                    
+                    if (sidebarAvatar && user.full_name) {
+                        const initials = user.full_name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+                        sidebarAvatar.textContent = initials;
+                    }
+                    if (sidebarName) sidebarName.textContent = user.full_name || 'User';
+                    if (sidebarOrg) sidebarOrg.textContent = user.organization?.name || 'Organization';
+
+                    // Load badge counts
+                    loadBadgeCounts(token);
+                } else {
+                    throw new Error('Failed to load user data');
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+                localStorage.removeItem('token');
+                localStorage.removeItem('authToken');
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('culturo_access_token');
+                window.location.href = 'login.html';
+            }
+
+            // Initialize search functionality
+            initializeUniversitySearch();
+        });
+
+        async function loadBadgeCounts(token) {
+            try {
+                // Load partnerships count
+                const partnershipsResponse = await fetch('http://127.0.0.1:8000/api/partnerships', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const partnerships = partnershipsResponse.ok ? await partnershipsResponse.json() : [];
+                
+                // Load targets count  
+                const targetsResponse = await fetch('http://127.0.0.1:8000/api/targets', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const targets = targetsResponse.ok ? await targetsResponse.json() : [];
+                
+                // Update badge counts
+                document.getElementById('nav-partnerships-count').textContent = partnerships.length;
+                document.getElementById('nav-targets-count').textContent = targets.length;
+                document.getElementById('notification-badge').textContent = '3'; // placeholder
+                
+                // Update university partnerships count
+                document.getElementById('university-partnerships-count-top').textContent = partnerships.length;
+            } catch (error) {
+                console.log('Could not load sidebar counts:', error);
+            }
+        }
+
+        function initializeUniversitySearch() {
+            // Search functionality
+            const searchBtn = document.getElementById('search-btn');
+            const universitySearch = document.getElementById('university-search');
+            
+            if (searchBtn) {
+                searchBtn.addEventListener('click', performUniversitySearch);
+            }
+            
+            if (universitySearch) {
+                universitySearch.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performUniversitySearch();
+                    }
+                });
+            }
+
+            // Filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    
+                    if (filter === 'clear-all') {
+                        // Clear all filters
+                        filterBtns.forEach(b => {
+                            b.classList.remove('active');
+                            b.classList.add('bg-gray-100', 'text-gray-700');
+                            b.classList.remove('bg-indigo-100', 'text-indigo-700');
+                        });
+                        // Set "Clear All" as active temporarily
+                        this.classList.add('active');
+                        setTimeout(() => {
+                            this.classList.remove('active');
+                            this.classList.add('bg-gray-100', 'text-gray-700');
+                            this.classList.remove('bg-indigo-100', 'text-indigo-700');
+                        }, 200);
+                    } else {
+                        // Toggle filter
+                        this.classList.toggle('active');
+                        if (this.classList.contains('active')) {
+                            this.classList.remove('bg-gray-100', 'text-gray-700');
+                            this.classList.add('bg-indigo-100', 'text-indigo-700');
+                        } else {
+                            this.classList.add('bg-gray-100', 'text-gray-700');
+                            this.classList.remove('bg-indigo-100', 'text-indigo-700');
+                        }
+                    }
+                    
+                    applyUniversityFilters();
+                });
+            });
+
+            // Sort functionality
+            const sortFilter = document.getElementById('sort-filter');
+            if (sortFilter) {
+                sortFilter.addEventListener('change', applyUniversitySorting);
+            }
+
+            // Add to targets functionality
+            const addToTargetBtns = document.querySelectorAll('button:contains("Add to Targets")');
+            addToTargetBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Get university name from the card
+                    const universityCard = this.closest('.university-card, [class*="border-"]');
+                    const universityName = universityCard?.querySelector('h3')?.textContent || 'Unknown University';
+                    
+                    // Here you would implement adding to targets
+                    console.log('Adding to targets:', universityName);
+                    alert(`${universityName} will be added to your targets!`);
+                });
+            });
+        }
+
+        function performUniversitySearch() {
+            const searchTerm = document.getElementById('university-search')?.value || '';
+            const country = document.getElementById('country-filter')?.value || '';
+            const programType = document.getElementById('program-type-filter')?.value || '';
+            
+            console.log('Searching for universities:', { searchTerm, country, programType });
+            
+            // Show loading indicator
+            const loadingIndicator = document.getElementById('loading-indicator');
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'block';
+                
+                // Simulate search delay
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                    
+                    // Update results summary
+                    const resultsSummary = document.getElementById('results-summary');
+                    if (resultsSummary) {
+                        resultsSummary.innerHTML = `Showing <span class="font-semibold">89</span> universities matching your search`;
+                    }
+                }, 1500);
+            }
+        }
+
+        function applyUniversityFilters() {
+            const activeFilters = Array.from(document.querySelectorAll('.filter-btn.active')).map(btn => btn.dataset.filter);
+            console.log('Active university filters:', activeFilters);
+            
+            // Update results based on filters
+            const resultsSummary = document.getElementById('results-summary');
+            if (resultsSummary) {
+                if (activeFilters.length > 0) {
+                    resultsSummary.innerHTML = `Showing <span class="font-semibold">142</span> universities with applied filters`;
+                } else {
+                    resultsSummary.innerHTML = `Showing <span class="font-semibold">236</span> universities`;
+                }
+            }
+        }
+
+        function applyUniversitySorting() {
+            const sortValue = document.getElementById('sort-filter')?.value || '';
+            console.log('Sorting universities by:', sortValue);
+            
+            // Implement sorting logic here
+            const resultsSummary = document.getElementById('results-summary');
+            if (resultsSummary) {
+                resultsSummary.innerHTML = `Showing <span class="font-semibold">236</span> universities sorted by ${sortValue.replace('-', ' ')}`;
+            }
+        }
+    </script>
+</body>
+</html>

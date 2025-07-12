@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose Partnership - Culturo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                 <a href="index.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-200">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-100 border-transparent focus:bg-white focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+            <!-- Nav Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                 <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+                 <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 bg-indigo-50 text-indigo-700 font-semibold rounded-lg">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                </a>
+                 <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                 <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+            <!-- User Profile Link & Settings -->
+             <div class="px-4 py-6 border-t border-gray-200">
+                 <a href="profile.html" class="flex items-center gap-3 group">
+                    <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/a78bfa/ffffff?text=AS" alt="User Avatar">
+                    <div>
+                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600">Dr. Anya Sharma</p>
+                        <p class="text-sm text-gray-500">Global University</p>
+                    </div>
+                </a>
+                 <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Settings</span>
+                </a>
+             </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Propose Partnership</h1>
+                    <p class="text-gray-500 mt-1">Start a new partnership request with Maplewood University.</p>
+                </div>
+                
+                <form action="partnership-detail.html">
+                    <div class="bg-white rounded-2xl shadow-sm">
+                        <div class="p-8 space-y-8">
+                            <!-- Partnership From/To -->
+                            <div class="flex items-center gap-6 p-4 bg-gray-50 rounded-lg">
+                                <div class="text-center">
+                                    <img class="w-16 h-16 rounded-full mx-auto" src="https://placehold.co/100x100/a78bfa/ffffff?text=GU" alt="Global University">
+                                    <p class="font-semibold mt-2">Global University</p>
+                                    <p class="text-sm text-gray-500">(Your Organization)</p>
+                                </div>
+                                <div class="text-gray-300">
+                                    <i data-lucide="arrow-right-left" class="w-8 h-8"></i>
+                                </div>
+                                <div class="text-center">
+                                     <img class="w-16 h-16 rounded-lg mx-auto" src="https://placehold.co/200x200/818cf8/ffffff?text=MU" alt="Maplewood University">
+                                    <p class="font-semibold mt-2">Maplewood University</p>
+                                    <p class="text-sm text-gray-500">(Partner Organization)</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Proposal Details -->
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800 mb-4">Proposal Details</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="partnership-type" class="block text-sm font-medium text-gray-700 mb-1">Partnership Type</label>
+                                        <select id="partnership-type" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                            <option>Select a type...</option>
+                                            <option>Recruitment</option>
+                                            <option>Articulation Agreement</option>
+                                            <option>Bilateral Exchange</option>
+                                            <option>Program Provider</option>
+                                        </select>
+                                    </div>
+                                     <div>
+                                        <label for="lead-manager" class="block text-sm font-medium text-gray-700 mb-1">Lead Manager (from Your Team)</label>
+                                        <select id="lead-manager" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                            <option>Dr. Anya Sharma</option>
+                                            <option>James Park</option>
+                                        </select>
+                                    </div>
+                                     <div class="md:col-span-2">
+                                        <label for="primary-contact" class="block text-sm font-medium text-gray-700 mb-1">Primary Contact (at Maplewood)</label>
+                                        <select id="primary-contact" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                            <option>David Chen (Partnership Director)</option>
+                                            <option>Emily Johnson (Admissions Officer)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Initial Message -->
+                            <div class="border-t border-gray-100 pt-8">
+                                <h2 class="text-xl font-bold text-gray-800 mb-4">Initial Message</h2>
+                                 <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">This message will start a new conversation with David Chen.</label>
+                                    <textarea id="message" rows="5" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Dear David, I'm writing to propose a partnership..."></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="px-8 py-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-4 rounded-b-2xl">
+                            <a href="university-profile.html" class="bg-gray-200 text-gray-800 font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-300 transition-colors">Cancel</a>
+                            <button type="submit" class="bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">Send Proposal</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

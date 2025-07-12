@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Detail - Culturo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-100 overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                <a href="dashboard.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-200">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-100 border-transparent focus:bg-white focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+            <!-- Nav Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                </a>
+                <a href="tasks.html" class="flex items-center gap-3 px-4 py-2.5 bg-indigo-50 text-indigo-700 font-semibold rounded-lg">
+                    <i data-lucide="check-square" class="w-5 h-5"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+            <!-- User Profile Link & Settings -->
+            <div class="px-4 py-6 border-t border-gray-200">
+                <a href="profile.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm" id="sidebar-avatar">GH</div>
+                    <div>
+                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600" id="sidebar-user-name">George Hogan</p>
+                        <p class="text-sm text-gray-500" id="sidebar-org-name">Global University</p>
+                    </div>
+                </a>
+                <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <button onclick="window.history.back()" class="p-2 hover:bg-gray-100 rounded-lg text-gray-600">
+                            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                        </button>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3">
+                                <h1 class="text-3xl font-bold text-gray-900" id="task-title">Loading...</h1>
+                                <div id="task-status-badge" class="px-3 py-1 text-sm font-medium rounded-full">
+                                    <!-- Status badge will be populated -->
+                                </div>
+                                <div id="task-priority-badge" class="px-3 py-1 text-sm font-medium rounded-full">
+                                    <!-- Priority badge will be populated -->
+                                </div>
+                            </div>
+                            <p class="text-gray-500 mt-1" id="task-meta">Task details</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="edit-task-btn" class="px-4 py-2 text-indigo-600 border border-indigo-600 rounded-lg hover:bg-indigo-50 font-medium">
+                                <i data-lucide="edit" class="w-4 h-4 mr-2"></i>
+                                Edit Task
+                            </button>
+                            <div class="relative">
+                                <button id="task-menu-btn" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                                    <i data-lucide="more-vertical" class="w-5 h-5"></i>
+                                </button>
+                                <div id="task-menu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-10">
+                                    <div class="py-1">
+                                        <button id="toggle-status-btn" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                            <i data-lucide="check-circle" class="w-4 h-4 mr-2 inline"></i>
+                                            Mark Complete
+                                        </button>
+                                        <button id="duplicate-task-btn" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                            <i data-lucide="copy" class="w-4 h-4 mr-2 inline"></i>
+                                            Duplicate Task
+                                        </button>
+                                        <div class="border-t border-gray-100"></div>
+                                        <button id="delete-task-btn" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                            <i data-lucide="trash-2" class="w-4 h-4 mr-2 inline"></i>
+                                            Delete Task
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Main Content -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Description -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Description</h2>
+                            <div id="task-description" class="text-gray-700">
+                                <!-- Description will be populated -->
+                            </div>
+                        </div>
+
+                        <!-- Comments/Notes Section -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-lg font-semibold text-gray-900">Comments & Notes</h2>
+                                <button id="add-comment-btn" class="text-indigo-600 hover:text-indigo-700 text-sm font-medium">
+                                    <i data-lucide="plus" class="w-4 h-4 mr-1 inline"></i>
+                                    Add Comment
+                                </button>
+                            </div>
+                            
+                            <!-- Add Comment Form -->
+                            <div id="comment-form" class="hidden mb-6">
+                                <textarea id="comment-input" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" rows="3" placeholder="Add a comment..."></textarea>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <button id="save-comment-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-medium text-sm">
+                                        Save Comment
+                                    </button>
+                                    <button id="cancel-comment-btn" class="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Comments List -->
+                            <div id="comments-list" class="space-y-4">
+                                <!-- Sample comment -->
+                                <div class="flex gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-semibold text-sm">GH</div>
+                                    <div class="flex-1">
+                                        <div class="bg-gray-50 rounded-lg p-3">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-medium text-gray-900">George Hogan</span>
+                                                <span class="text-xs text-gray-500">2 hours ago</span>
+                                            </div>
+                                            <p class="text-sm text-gray-700">Initial contact email sent to the partnership coordinator. Waiting for response.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-semibold text-sm">GH</div>
+                                    <div class="flex-1">
+                                        <div class="bg-gray-50 rounded-lg p-3">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <span class="text-sm font-medium text-gray-900">George Hogan</span>
+                                                <span class="text-xs text-gray-500">1 day ago</span>
+                                            </div>
+                                            <p class="text-sm text-gray-700">Task created. Need to follow up on partnership proposal within 3 business days.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Related Items -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Related Items</h2>
+                            <div id="related-items" class="space-y-3">
+                                <!-- Related items will be populated -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="space-y-6">
+                        <!-- Task Details -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Task Details</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="text-sm font-medium text-gray-500">Status</label>
+                                    <div class="mt-1">
+                                        <select id="status-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                            <option value="PENDING">Pending</option>
+                                            <option value="IN_PROGRESS">In Progress</option>
+                                            <option value="COMPLETED">Completed</option>
+                                            <option value="CANCELLED">Cancelled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="text-sm font-medium text-gray-500">Priority</label>
+                                    <div class="mt-1">
+                                        <select id="priority-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                            <option value="LOW">Low</option>
+                                            <option value="MEDIUM">Medium</option>
+                                            <option value="HIGH">High</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="text-sm font-medium text-gray-500">Due Date</label>
+                                    <div class="mt-1">
+                                        <input type="date" id="due-date-input" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="text-sm font-medium text-gray-500">Type</label>
+                                    <div class="mt-1">
+                                        <select id="type-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                                            <option value="general">General Task</option>
+                                            <option value="target">Target Related</option>
+                                            <option value="partnership">Partnership Related</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="text-sm font-medium text-gray-500">Related To</label>
+                                    <div class="mt-1">
+                                        <input type="text" id="related-to-input" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Organization or target name">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button id="save-changes-btn" class="w-full mt-6 bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 font-medium">
+                                Save Changes
+                            </button>
+                        </div>
+
+                        <!-- Task Timeline -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Timeline</h2>
+                            <div class="space-y-4" id="task-timeline">
+                                <!-- Timeline items will be populated -->
+                                <div class="flex gap-3">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm text-gray-900 font-medium">Task created</p>
+                                        <p class="text-xs text-gray-500">2 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm text-gray-900 font-medium">Status changed to In Progress</p>
+                                        <p class="text-xs text-gray-500">1 day ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="w-2 h-2 bg-orange-400 rounded-full mt-2"></div>
+                                    <div>
+                                        <p class="text-sm text-gray-900 font-medium">Priority set to High</p>
+                                        <p class="text-xs text-gray-500">4 hours ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
+                            <div class="space-y-3">
+                                <button onclick="setReminder()" class="w-full flex items-center gap-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors">
+                                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="bell" class="w-4 h-4 text-orange-600"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-900">Set Reminder</span>
+                                </button>
+                                <button onclick="addSubtask()" class="w-full flex items-center gap-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="list" class="w-4 h-4 text-blue-600"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-900">Add Subtask</span>
+                                </button>
+                                <button onclick="shareTask()" class="w-full flex items-center gap-3 p-3 text-left hover:bg-gray-50 rounded-lg transition-colors">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="share" class="w-4 h-4 text-green-600"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-900">Share Task</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sample task data - in real app this would come from URL params or API
+        const taskId = new URLSearchParams(window.location.search).get('id') || '1';
+        
+        const sampleTasks = {
+            '1': {
+                id: 1,
+                title: "Follow up with University of Toronto",
+                description: "Send partnership proposal and schedule follow-up meeting to discuss potential collaboration opportunities. Need to include enrollment data, program details, and commission structure.",
+                priority: "HIGH",
+                status: "OVERDUE",
+                type: "partnership",
+                dueDate: "2025-01-03",
+                createdAt: "2025-01-01",
+                relatedTo: "University of Toronto",
+                assignedTo: "George Hogan",
+                comments: [
+                    {
+                        id: 1,
+                        author: "George Hogan",
+                        content: "Initial contact email sent to the partnership coordinator. Waiting for response.",
+                        timestamp: "2025-01-05T10:00:00Z"
+                    },
+                    {
+                        id: 2,
+                        author: "George Hogan", 
+                        content: "Task created. Need to follow up on partnership proposal within 3 business days.",
+                        timestamp: "2025-01-04T14:30:00Z"
+                    }
+                ]
+            },
+            '2': {
+                id: 2,
+                title: "Schedule call with Beijing Institute",
+                description: "Initial contact call to discuss partnership opportunities and understand their international program needs.",
+                priority: "HIGH",
+                status: "PENDING",
+                type: "target",
+                dueDate: "2025-01-05",
+                createdAt: "2025-01-02",
+                relatedTo: "Beijing Institute",
+                assignedTo: "George Hogan",
+                comments: []
+            }
+        };
+
+        let currentTask = null;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            loadTask();
+            initializeEventListeners();
+        });
+
+        function initializeEventListeners() {
+            // Menu toggle
+            document.getElementById('task-menu-btn').addEventListener('click', toggleTaskMenu);
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('#task-menu-btn') && !e.target.closest('#task-menu')) {
+                    document.getElementById('task-menu').classList.add('hidden');
+                }
+            });
+
+            // Task actions
+            document.getElementById('toggle-status-btn').addEventListener('click', toggleTaskStatus);
+            document.getElementById('duplicate-task-btn').addEventListener('click', duplicateTask);
+            document.getElementById('delete-task-btn').addEventListener('click', deleteTask);
+            document.getElementById('save-changes-btn').addEventListener('click', saveTaskChanges);
+
+            // Comments
+            document.getElementById('add-comment-btn').addEventListener('click', showCommentForm);
+            document.getElementById('save-comment-btn').addEventListener('click', saveComment);
+            document.getElementById('cancel-comment-btn').addEventListener('click', hideCommentForm);
+
+            // Real-time updates
+            document.getElementById('status-select').addEventListener('change', updateTaskBadges);
+            document.getElementById('priority-select').addEventListener('change', updateTaskBadges);
+        }
+
+        function loadTask() {
+            currentTask = sampleTasks[taskId];
+            
+            if (!currentTask) {
+                showNotification('Task not found', 'error');
+                window.location.href = 'tasks.html';
+                return;
+            }
+
+            populateTaskData();
+        }
+
+        function populateTaskData() {
+            // Header
+            document.getElementById('task-title').textContent = currentTask.title;
+            document.getElementById('task-meta').textContent = `Created ${formatDate(currentTask.createdAt)} • Type: ${currentTask.type}`;
+            
+            // Badges
+            updateTaskBadges();
+            
+            // Description
+            document.getElementById('task-description').innerHTML = `<p>${currentTask.description}</p>`;
+            
+            // Form fields
+            document.getElementById('status-select').value = currentTask.status;
+            document.getElementById('priority-select').value = currentTask.priority;
+            document.getElementById('type-select').value = currentTask.type;
+            document.getElementById('due-date-input').value = currentTask.dueDate || '';
+            document.getElementById('related-to-input').value = currentTask.relatedTo || '';
+            
+            // Comments
+            populateComments();
+            
+            // Related items
+            populateRelatedItems();
+            
+            // Update menu button text
+            const toggleBtn = document.getElementById('toggle-status-btn');
+            toggleBtn.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 mr-2 inline"></i>${currentTask.status === 'COMPLETED' ? 'Mark Incomplete' : 'Mark Complete'}`;
+            lucide.createIcons();
+        }
+
+        function updateTaskBadges() {
+            const statusBadge = document.getElementById('task-status-badge');
+            const priorityBadge = document.getElementById('task-priority-badge');
+            
+            const status = document.getElementById('status-select').value;
+            const priority = document.getElementById('priority-select').value;
+            
+            // Status badge
+            const statusColors = {
+                'PENDING': 'bg-gray-100 text-gray-800',
+                'IN_PROGRESS': 'bg-blue-100 text-blue-800',
+                'COMPLETED': 'bg-green-100 text-green-800',
+                'OVERDUE': 'bg-red-100 text-red-800',
+                'CANCELLED': 'bg-gray-100 text-gray-600'
+            };
+            
+            statusBadge.className = `px-3 py-1 text-sm font-medium rounded-full ${statusColors[status]}`;
+            statusBadge.textContent = status.replace('_', ' ');
+            
+            // Priority badge
+            const priorityColors = {
+                'LOW': 'bg-blue-100 text-blue-800',
+                'MEDIUM': 'bg-orange-100 text-orange-800',
+                'HIGH': 'bg-red-100 text-red-800'
+            };
+            
+            priorityBadge.className = `px-3 py-1 text-sm font-medium rounded-full ${priorityColors[priority]}`;
+            priorityBadge.textContent = priority;
+        }
+
+        function populateComments() {
+            const commentsList = document.getElementById('comments-list');
+            
+            if (currentTask.comments.length === 0) {
+                commentsList.innerHTML = `
+                    <div class="text-center py-8">
+                        <i data-lucide="message-circle" class="w-12 h-12 text-gray-300 mx-auto mb-3"></i>
+                        <p class="text-gray-500">No comments yet</p>
+                        <p class="text-sm text-gray-400">Add the first comment to track progress</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            commentsList.innerHTML = currentTask.comments.map(comment => `
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-semibold text-sm">
+                        ${comment.author.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-sm font-medium text-gray-900">${comment.author}</span>
+                                <span class="text-xs text-gray-500">${formatRelativeTime(comment.timestamp)}</span>
+                            </div>
+                            <p class="text-sm text-gray-700">${comment.content}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function populateRelatedItems() {
+            const relatedItems = document.getElementById('related-items');
+            
+            if (currentTask.relatedTo) {
+                const relatedType = currentTask.type === 'partnership' ? 'Partnership' : 
+                                 currentTask.type === 'target' ? 'Target' : 'General';
+                const relatedIcon = currentTask.type === 'partnership' ? 'handshake' :
+                                  currentTask.type === 'target' ? 'target' : 'folder';
+                
+                relatedItems.innerHTML = `
+                    <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer">
+                        <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="${relatedIcon}" class="w-4 h-4 text-indigo-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-medium text-gray-900">${currentTask.relatedTo}</p>
+                            <p class="text-sm text-gray-500">${relatedType}</p>
+                        </div>
+                        <i data-lucide="external-link" class="w-4 h-4 text-gray-400"></i>
+                    </div>
+                `;
+            } else {
+                relatedItems.innerHTML = `
+                    <div class="text-center py-6">
+                        <i data-lucide="link" class="w-8 h-8 text-gray-300 mx-auto mb-2"></i>
+                        <p class="text-gray-500 text-sm">No related items</p>
+                    </div>
+                `;
+            }
+            
+            lucide.createIcons();
+        }
+
+        function toggleTaskMenu() {
+            const menu = document.getElementById('task-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleTaskStatus() {
+            const statusSelect = document.getElementById('status-select');
+            const newStatus = currentTask.status === 'COMPLETED' ? 'PENDING' : 'COMPLETED';
+            
+            statusSelect.value = newStatus;
+            currentTask.status = newStatus;
+            updateTaskBadges();
+            
+            // Update menu button
+            const toggleBtn = document.getElementById('toggle-status-btn');
+            toggleBtn.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 mr-2 inline"></i>${newStatus === 'COMPLETED' ? 'Mark Incomplete' : 'Mark Complete'}`;
+            
+            showNotification(`Task marked as ${newStatus.toLowerCase()}`, 'success');
+            document.getElementById('task-menu').classList.add('hidden');
+            lucide.createIcons();
+        }
+
+        function duplicateTask() {
+            showNotification('Task duplicated successfully', 'success');
+            document.getElementById('task-menu').classList.add('hidden');
+        }
+
+        function deleteTask() {
+            if (confirm('Are you sure you want to delete this task? This action cannot be undone.')) {
+                showNotification('Task deleted successfully', 'success');
+                setTimeout(() => {
+                    window.location.href = 'tasks.html';
+                }, 1000);
+            }
+            document.getElementById('task-menu').classList.add('hidden');
+        }
+
+        function saveTaskChanges() {
+            // Update current task with form values
+            currentTask.status = document.getElementById('status-select').value;
+            currentTask.priority = document.getElementById('priority-select').value;
+            currentTask.type = document.getElementById('type-select').value;
+            currentTask.dueDate = document.getElementById('due-date-input').value;
+            currentTask.relatedTo = document.getElementById('related-to-input').value;
+            
+            // Update display
+            updateTaskBadges();
+            populateRelatedItems();
+            
+            showNotification('Task updated successfully', 'success');
+        }
+
+        function showCommentForm() {
+            document.getElementById('comment-form').classList.remove('hidden');
+            document.getElementById('comment-input').focus();
+        }
+
+        function hideCommentForm() {
+            document.getElementById('comment-form').classList.add('hidden');
+            document.getElementById('comment-input').value = '';
+        }
+
+        function saveComment() {
+            const commentText = document.getElementById('comment-input').value.trim();
+            
+            if (!commentText) {
+                showNotification('Please enter a comment', 'error');
+                return;
+            }
+            
+            const newComment = {
+                id: Date.now(),
+                author: "George Hogan", // In real app, get from user session
+                content: commentText,
+                timestamp: new Date().toISOString()
+            };
+            
+            currentTask.comments.unshift(newComment);
+            populateComments();
+            hideCommentForm();
+            
+            showNotification('Comment added successfully', 'success');
+        }
+
+        function setReminder() {
+            const days = prompt('Set reminder in how many days?', '1');
+            if (days && !isNaN(days)) {
+                const reminderDate = new Date();
+                reminderDate.setDate(reminderDate.getDate() + parseInt(days));
+                showNotification(`Reminder set for ${reminderDate.toLocaleDateString()}`, 'success');
+            }
+        }
+
+        function addSubtask() {
+            const subtaskTitle = prompt('Enter subtask title:');
+            if (subtaskTitle) {
+                showNotification('Subtask added successfully', 'success');
+                // In real app, would create a new linked task
+            }
+        }
+
+        function shareTask() {
+            const email = prompt('Enter email address to share with:');
+            if (email) {
+                showNotification(`Task shared with ${email}`, 'success');
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        function formatRelativeTime(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
+            
+            if (diffInHours < 1) return 'Just now';
+            if (diffInHours < 24) return `${diffInHours} hours ago`;
+            
+            const diffInDays = Math.floor(diffInHours / 24);
+            if (diffInDays === 1) return 'Yesterday';
+            if (diffInDays < 7) return `${diffInDays} days ago`;
+            
+            return date.toLocaleDateString();
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg text-white z-50 ${
+                type === 'success' ? 'bg-green-500' : 
+                type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+            }`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

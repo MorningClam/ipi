@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Culturo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                <a href="dashboard.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-200">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-100 border-transparent focus:bg-white focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+            <!-- Nav Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                </a>
+                <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+            <!-- User Profile Link & Settings -->
+            <div class="px-4 py-6 border-t border-gray-200">
+                <a href="profile.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm" id="sidebar-avatar">GH</div>
+                    <div>
+                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600" id="sidebar-user-name">George Hogan</p>
+                        <p class="text-sm text-gray-500" id="sidebar-org-name">Global University</p>
+                    </div>
+                </a>
+                <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="max-w-6xl mx-auto">
+                <!-- Profile Header -->
+                <div class="bg-white rounded-2xl shadow-sm mb-8">
+                    <div class="px-8 py-8">
+                        <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                            <div class="w-32 h-32 rounded-full border-4 border-white shadow-lg flex-shrink-0 bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-2xl" id="profile-avatar">GH</div>
+                            <div class="flex-1">
+                                <h1 class="text-3xl font-bold text-gray-900" id="profile-name">George Hogan</h1>
+                                <p class="text-lg text-gray-600 mt-1" id="profile-title">Dean of International Relations</p>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <i data-lucide="building-2" class="w-4 h-4 text-indigo-600"></i>
+                                    <span class="text-indigo-600 font-medium" id="profile-org-name">Global University</span>
+                                </div>
+                                <div class="flex flex-wrap gap-4 mt-4 text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="mail" class="w-4 h-4 text-gray-400"></i>
+                                        <span class="text-gray-600" id="profile-email">george.hogan@global.edu</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="phone" class="w-4 h-4 text-gray-400"></i>
+                                        <span class="text-gray-600" id="profile-phone">+1 (555) 123-4567</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i>
+                                        <span class="text-gray-600" id="profile-location">Toronto, Ontario</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <a href="edit-profile.html" class="inline-flex items-center justify-center gap-2 bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all transform hover:scale-105">
+                                    <i data-lucide="edit-2" class="w-4 h-4"></i>
+                                    <span>Edit Profile</span>
+                                </a>
+                                <button class="inline-flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-all">
+                                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Active Partnerships</p>
+                                <p class="text-3xl font-bold text-gray-900" id="active-partnerships-count">12</p>
+                            </div>
+                            <div class="p-3 bg-green-100 text-green-600 rounded-xl">
+                                <i data-lucide="handshake" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-xs text-green-600 font-medium">+2 this month</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Pipeline Targets</p>
+                                <p class="text-3xl font-bold text-gray-900" id="pipeline-targets-count">8</p>
+                            </div>
+                            <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-xs text-blue-600 font-medium">3 in negotiation</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Countries Connected</p>
+                                <p class="text-3xl font-bold text-gray-900" id="countries-count">15</p>
+                            </div>
+                            <div class="p-3 bg-purple-100 text-purple-600 rounded-xl">
+                                <i data-lucide="globe" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-xs text-purple-600 font-medium">Across 4 continents</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Success Rate</p>
+                                <p class="text-3xl font-bold text-gray-900" id="success-rate">89%</p>
+                            </div>
+                            <div class="p-3 bg-yellow-100 text-yellow-600 rounded-xl">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-xs text-yellow-600 font-medium">Target → Partnership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left Column - About & Experience -->
+                    <div class="lg:col-span-2 space-y-8">
+                        <!-- About Section -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">About</h2>
+                            <p class="text-gray-600 leading-relaxed mb-6" id="profile-about">
+                                Experienced international relations professional with over 15 years in higher education partnership development. Passionate about building meaningful connections between institutions globally and facilitating student mobility programs that create lasting impact.
+                            </p>
+                            
+                            <!-- What I'm Looking For -->
+                            <div class="mb-6">
+                                <h3 class="font-semibold text-gray-800 mb-3">Looking For</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Student Exchange Partners</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Joint Degree Programs</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Research Collaborations</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Faculty Exchange</span>
+                                </div>
+                            </div>
+
+                            <!-- My Goals -->
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-3">Current Goals</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Expand Asia-Pacific Network</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Launch Online Programs</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Sustainability Partnerships</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience Section -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-6">Experience</h2>
+                            <div class="space-y-6">
+                                <div class="flex gap-4">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="building-2" class="w-6 h-6 text-indigo-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">Dean of International Relations</h3>
+                                        <p class="text-indigo-600 text-sm font-medium">Global University</p>
+                                        <p class="text-gray-500 text-sm">2018 - Present · 6 years</p>
+                                        <p class="text-gray-600 text-sm mt-2">Leading international partnership development and student mobility programs across 6 continents. Managed partnerships worth $50M+ in annual student exchange value.</p>
+                                        <div class="mt-3 flex flex-wrap gap-2">
+                                            <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">Partnership Development</span>
+                                            <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">Strategic Planning</span>
+                                            <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">Team Leadership</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-4">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="graduation-cap" class="w-6 h-6 text-gray-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">Director of International Programs</h3>
+                                        <p class="text-gray-600 text-sm">University of Toronto</p>
+                                        <p class="text-gray-500 text-sm">2015 - 2018 · 3 years</p>
+                                        <p class="text-gray-600 text-sm mt-2">Managed exchange programs and developed strategic partnerships with 50+ institutions globally. Increased student mobility by 40%.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-4">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="globe" class="w-6 h-6 text-gray-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">International Partnerships Coordinator</h3>
+                                        <p class="text-gray-600 text-sm">McGill University</p>
+                                        <p class="text-gray-500 text-sm">2012 - 2015 · 3 years</p>
+                                        <p class="text-gray-600 text-sm mt-2">Coordinated bilateral agreements and facilitated academic collaborations across North America and Europe.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Activity & Connections -->
+                    <div class="space-y-8">
+                        <!-- Recent Activity -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-6">Recent Activity</h2>
+                            <div class="space-y-4">
+                                <div class="flex gap-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="handshake" class="w-4 h-4 text-green-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-800 font-medium">New partnership activated</p>
+                                        <p class="text-xs text-gray-500">University of Melbourne - Student Exchange</p>
+                                        <p class="text-xs text-gray-400">2 days ago</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="target" class="w-4 h-4 text-blue-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-800 font-medium">Target moved to negotiation</p>
+                                        <p class="text-xs text-gray-500">National University of Singapore</p>
+                                        <p class="text-xs text-gray-400">1 week ago</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="users" class="w-4 h-4 text-purple-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-800 font-medium">Attended NAFSA conference</p>
+                                        <p class="text-xs text-gray-500">Connected with 15 new partners</p>
+                                        <p class="text-xs text-gray-400">2 weeks ago</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                                        <i data-lucide="award" class="w-4 h-4 text-yellow-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm text-gray-800 font-medium">Partnership milestone reached</p>
+                                        <p class="text-xs text-gray-500">1000th student exchange completed</p>
+                                        <p class="text-xs text-gray-400">3 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-6">Quick Actions</h2>
+                            <div class="space-y-3">
+                                <a href="add-target.html" class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all group">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200">
+                                        <i data-lucide="target" class="w-5 h-5 text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">Add Target</p>
+                                        <p class="text-xs text-gray-500">Track new opportunities</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="find-universities.html" class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all group">
+                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200">
+                                        <i data-lucide="search" class="w-5 h-5 text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">Find Partners</p>
+                                        <p class="text-xs text-gray-500">Discover universities</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="organization-partnerships.html" class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all group">
+                                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200">
+                                        <i data-lucide="handshake" class="w-5 h-5 text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">View Partnerships</p>
+                                        <p class="text-xs text-gray-500">Manage agreements</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="bg-white rounded-2xl shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="mail" class="w-5 h-5 text-gray-400"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-800">Email</p>
+                                        <p class="text-sm text-gray-600" id="contact-email">george.hogan@global.edu</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="phone" class="w-5 h-5 text-gray-400"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-800">Phone</p>
+                                        <p class="text-sm text-gray-600" id="contact-phone">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="linkedin" class="w-5 h-5 text-gray-400"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-800">LinkedIn</p>
+                                        <p class="text-sm text-indigo-600 hover:underline cursor-pointer">linkedin.com/in/georgehogan</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="calendar" class="w-5 h-5 text-gray-400"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-800">Calendar</p>
+                                        <p class="text-sm text-indigo-600 hover:underline cursor-pointer">Schedule a meeting</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Load user data
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Initialize Lucide icons first
+            lucide.createIcons();
+            const token = localStorage.getItem('access_token');
+            
+            // If no token, show default profile but don't redirect
+            if (!token) {
+                console.log('No token found, showing default profile');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    console.log('Failed to fetch user data, showing default profile');
+                    return;
+                }
+
+                const user = await response.json();
+                
+                // Update profile information with real data
+                const initials = user.full_name ? 
+                    user.full_name.split(' ').map(n => n[0]).join('').toUpperCase() : 'GH';
+                
+                // Update all profile elements
+                document.getElementById('profile-name').textContent = user.full_name || 'George Hogan';
+                document.getElementById('profile-title').textContent = user.title || 'Dean of International Relations';
+                document.getElementById('profile-email').textContent = user.email || 'george.hogan@global.edu';
+                document.getElementById('contact-email').textContent = user.email || 'george.hogan@global.edu';
+                document.getElementById('profile-phone').textContent = user.phone || '+1 (555) 123-4567';
+                document.getElementById('contact-phone').textContent = user.phone || '+1 (555) 123-4567';
+                document.getElementById('profile-location').textContent = user.location || 'Toronto, Ontario';
+                
+                // Update sidebar and profile avatars
+                document.getElementById('sidebar-user-name').textContent = user.full_name || 'George Hogan';
+                document.getElementById('sidebar-avatar').textContent = initials;
+                document.getElementById('profile-avatar').textContent = initials;
+                
+                // Update about section if user has custom bio
+                if (user.bio) {
+                    document.getElementById('profile-about').textContent = user.bio;
+                }
+                
+                // Load organization data if user has one
+                if (user.organization_id) {
+                    const orgResponse = await fetch(`http://127.0.0.1:8000/api/organizations/${user.organization_id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    
+                    if (orgResponse.ok) {
+                        const org = await orgResponse.json();
+                        document.getElementById('profile-org-name').textContent = org.name;
+                        document.getElementById('sidebar-org-name').textContent = org.name;
+                        
+                        // Update about section to include organization context if no custom bio
+                        if (!user.bio) {
+                            const aboutText = org.description ? 
+                                `${user.full_name || 'George Hogan'} works at ${org.name}. ${org.description}` 
+                                : `${user.full_name || 'George Hogan'} is a ${user.user_type || 'team member'} at ${org.name}, working in international education and partnerships.`;
+                            document.getElementById('profile-about').textContent = aboutText;
+                        }
+                    }
+                } else {
+                    // User has no organization
+                    document.getElementById('sidebar-org-name').textContent = 'Independent';
+                    document.getElementById('profile-org-name').textContent = 'Independent Professional';
+                    if (!user.bio) {
+                        document.getElementById('profile-about').textContent = `${user.full_name || 'George Hogan'} is an independent professional in the international education industry.`;
+                    }
+                }
+                
+                // Load partnership and target stats if possible
+                try {
+                    // Load partnerships count
+                    const partnershipsResponse = await fetch('http://127.0.0.1:8000/api/partnerships', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    
+                    if (partnershipsResponse.ok) {
+                        const partnerships = await partnershipsResponse.json();
+                        const activePartnerships = partnerships.filter(p => p.status === 'ACTIVE').length;
+                        document.getElementById('active-partnerships-count').textContent = activePartnerships;
+                    }
+                } catch (error) {
+                    console.log('Could not load partnerships stats');
+                }
+                
+                try {
+                    // Load targets count
+                    const targetsResponse = await fetch('http://127.0.0.1:8000/api/targets', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    
+                    if (targetsResponse.ok) {
+                        const targets = await targetsResponse.json();
+                        document.getElementById('pipeline-targets-count').textContent = targets.length;
+                        
+                        // Count countries represented in targets
+                        const countries = new Set(targets.map(t => t.target_country).filter(Boolean));
+                        document.getElementById('countries-count').textContent = countries.size || 15;
+                        
+                        // Calculate success rate (targets that became partnerships)
+                        const successfulTargets = targets.filter(t => t.stage === 'Converted').length;
+                        const completedTargets = targets.filter(t => ['Converted', 'Closed'].includes(t.stage)).length;
+                        if (completedTargets > 0) {
+                            const successRate = Math.round((successfulTargets / completedTargets) * 100);
+                            document.getElementById('success-rate').textContent = `${successRate}%`;
+                        }
+                    }
+                } catch (error) {
+                    console.log('Could not load targets stats');
+                }
+                
+            } catch (error) {
+                console.error('Error loading profile data:', error);
+                // Don't redirect on general errors, just show default content
+        });
+    </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

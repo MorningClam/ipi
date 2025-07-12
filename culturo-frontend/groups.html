@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups - Culturo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .group-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .group-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .floating-search {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .group-avatar-stack {
+            position: relative;
+        }
+        .group-avatar-stack img:not(:first-child) {
+            margin-left: -8px;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 z-50 w-64 bg-white/95 backdrop-blur-md border-r border-gray-200/80 flex flex-col shadow-lg">
+        <!-- Logo -->
+        <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200/80">
+            <a href="dashboard.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Culturo</span>
+            </a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="p-4 border-b border-gray-200">
+            <form action="search-results.html">
+                <div class="relative">
+                    <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                    <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-100 border-transparent focus:bg-white focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </form>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <!-- Find Section -->
+            <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+            <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                <span>Find Agents</span>
+            </a>
+            <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="school" class="w-5 h-5"></i>
+                <span>Find Universities</span>
+            </a>
+            <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                <span>Find Events</span>
+            </a>
+
+            <!-- Workspace Section -->
+            <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+            <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="handshake" class="w-5 h-5"></i>
+                <span>Partnerships</span>
+            </a>
+            <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="target" class="w-5 h-5"></i>
+                <span>Targets</span>
+            </a>
+            <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 bg-indigo-50 text-indigo-700 font-semibold rounded-lg">
+                <i data-lucide="users" class="w-5 h-5"></i>
+                <span>Groups</span>
+            </a>
+            <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="message-square" class="w-5 h-5"></i>
+                <span>Messages</span>
+            </a>
+            <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
+                <i data-lucide="bell" class="w-5 h-5"></i>
+                <span>Notifications</span>
+            </a>
+        </nav>
+
+        <!-- User Profile -->
+        <div class="px-4 py-6 border-t border-gray-200/80">
+            <a href="profile.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm" id="sidebar-avatar">GH</div>
+                <div>
+                    <p class="font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors" id="sidebar-user-name">George Hogan</p>
+                    <p class="text-sm text-gray-500" id="sidebar-org-name">Global University</p>
+                </div>
+            </a>
+            <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 min-h-screen">
+        <!-- Header Section -->
+        <div class="bg-white border-b border-gray-200 px-8 py-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Groups & Communities</h1>
+                        <p class="text-gray-600 text-lg max-w-2xl">Connect with like-minded professionals, join specialized communities, and collaborate on shared interests and goals.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="createGroup()" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-all flex items-center gap-2">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                            Create Group
+                        </button>
+                        <button onclick="joinGroup()" class="bg-gray-100 text-gray-700 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all flex items-center gap-2">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                            Browse Groups
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="p-8 max-w-7xl mx-auto">
+            <!-- Search & Filters -->
+            <div class="floating-search sticky top-4 z-40 mb-8 p-6 rounded-2xl border border-gray-200/50 shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="relative flex-1">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                        <input type="text" id="search-groups" placeholder="Search groups by name, topic, or location..." 
+                               class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white">
+                    </div>
+                    <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition-all">
+                        <i data-lucide="filter" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                
+                <!-- Quick Filters -->
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="text-sm font-medium text-gray-600">Quick filters:</span>
+                    <button class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-medium hover:bg-indigo-200 transition-all">My Groups</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all">Public</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all">University</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all">Study Abroad</button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all">Canada</button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200/50">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">My Groups</p>
+                            <p class="text-3xl font-bold text-gray-900">7</p>
+                        </div>
+                        <div class="p-3 bg-indigo-100 rounded-xl">
+                            <i data-lucide="users" class="w-6 h-6 text-indigo-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200/50">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Pending Invites</p>
+                            <p class="text-3xl font-bold text-gray-900">3</p>
+                        </div>
+                        <div class="p-3 bg-yellow-100 rounded-xl">
+                            <i data-lucide="user-plus" class="w-6 h-6 text-yellow-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200/50">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Unread Messages</p>
+                            <p class="text-3xl font-bold text-gray-900">12</p>
+                        </div>
+                        <div class="p-3 bg-green-100 rounded-xl">
+                            <i data-lucide="message-circle" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200/50">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Group Events</p>
+                            <p class="text-3xl font-bold text-gray-900">5</p>
+                        </div>
+                        <div class="p-3 bg-purple-100 rounded-xl">
+                            <i data-lucide="calendar" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Groups Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6" id="groups-container">
+                <!-- Featured Group -->
+                <div class="group-card bg-white rounded-2xl shadow-sm border border-gray-200/50 overflow-hidden col-span-full lg:col-span-1">
+                    <div class="relative h-32 bg-gradient-to-r from-purple-500 to-indigo-600 p-6">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-semibold">Featured</span>
+                        </div>
+                        <div class="absolute bottom-4 left-6">
+                            <h3 class="text-xl font-bold text-white">Study Abroad Advisors - Canada</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">Connect with education professionals specializing in Canadian university programs and student services.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="group-avatar-stack flex">
+                                <img class="w-8 h-8 rounded-full border-2 border-white" src="https://placehold.co/100x100/6366f1/ffffff?text=JD" alt="Member">
+                                <img class="w-8 h-8 rounded-full border-2 border-white" src="https://placehold.co/100x100/8b5cf6/ffffff?text=SM" alt="Member">
+                                <img class="w-8 h-8 rounded-full border-2 border-white" src="https://placehold.co/100x100/06b6d4/ffffff?text=AK" alt="Member">
+                                <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">+47</div>
+                            </div>
+                            <span class="text-sm text-gray-500">50 members</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-sm text-gray-600">Canada</span>
+                            <span class="text-gray-300">•</span>
+                            <i data-lucide="clock" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-sm text-gray-600">Active 2h ago</span>
+                        </div>
+                        <button class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-all">
+                            Join Group
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Regular Group Cards -->
+                <div class="group-card bg-white rounded-2xl shadow-sm border border-gray-200/50 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                                <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-lg text-xs font-semibold">Joined</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">University Partnerships</h3>
+                        <p class="text-gray-600 text-sm mb-4">Collaborative space for university partnership coordinators and international office staff.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="group-avatar-stack flex">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/f59e0b/ffffff?text=MR" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/10b981/ffffff?text=LT" alt="Member">
+                                <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">+8</div>
+                            </div>
+                            <span class="text-xs text-gray-500">12 members</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="pulse-animation w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span class="text-xs text-gray-600">3 active discussions</span>
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-all">
+                            View Group
+                        </button>
+                    </div>
+                </div>
+
+                <div class="group-card bg-white rounded-2xl shadow-sm border border-gray-200/50 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center">
+                                <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-lg text-xs font-semibold">Private</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Global Agents Network</h3>
+                        <p class="text-gray-600 text-sm mb-4">Exclusive network for verified education agents working with international students.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="group-avatar-stack flex">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/ef4444/ffffff?text=PR" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/3b82f6/ffffff?text=NC" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/8b5cf6/ffffff?text=DK" alt="Member">
+                                <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">+145</div>
+                            </div>
+                            <span class="text-xs text-gray-500">148 members</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-green-500"></i>
+                            <span class="text-xs text-gray-600">Verified members only</span>
+                        </div>
+                        <button class="w-full bg-emerald-600 text-white py-2.5 rounded-xl font-medium hover:bg-emerald-700 transition-all">
+                            Request Access
+                        </button>
+                    </div>
+                </div>
+
+                <div class="group-card bg-white rounded-2xl shadow-sm border border-gray-200/50 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center">
+                                <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-lg text-xs font-semibold">Public</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Student Support Circle</h3>
+                        <p class="text-gray-600 text-sm mb-4">Peer support and mentorship for international students navigating their academic journey.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="group-avatar-stack flex">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/06b6d4/ffffff?text=AN" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/84cc16/ffffff?text=BT" alt="Member">
+                                <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">+76</div>
+                            </div>
+                            <span class="text-xs text-gray-500">78 members</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="calendar" class="w-4 h-4 text-purple-500"></i>
+                            <span class="text-xs text-gray-600">Next meetup: Dec 15</span>
+                        </div>
+                        <button class="w-full bg-pink-600 text-white py-2.5 rounded-xl font-medium hover:bg-pink-700 transition-all">
+                            Join Group
+                        </button>
+                    </div>
+                </div>
+
+                <div class="group-card bg-white rounded-2xl shadow-sm border border-gray-200/50 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
+                                <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-lg text-xs font-semibold">Joined</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Research Collaborations</h3>
+                        <p class="text-gray-600 text-sm mb-4">Connecting researchers and academics for cross-institutional collaboration opportunities.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="group-avatar-stack flex">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/6366f1/ffffff?text=RT" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/ec4899/ffffff?text=SL" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/14b8a6/ffffff?text=MP" alt="Member">
+                                <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">+31</div>
+                            </div>
+                            <span class="text-xs text-gray-500">34 members</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="pulse-animation w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span class="text-xs text-gray-600">New project proposals</span>
+                        </div>
+                        <button class="w-full bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium hover:bg-gray-200 transition-all">
+                            View Group
+                        </button>
+                    </div>
+                </div>
+
+                <div class="group-card bg-white rounded-2xl shadow-sm border border-gray-200/50 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center">
+                                <i data-lucide="map" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-lg text-xs font-semibold">Public</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Regional Coordinators</h3>
+                        <p class="text-gray-600 text-sm mb-4">Regional coordinators sharing best practices and local insights for student programs.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="group-avatar-stack flex">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/f97316/ffffff?text=KC" alt="Member">
+                                <img class="w-6 h-6 rounded-full border-2 border-white" src="https://placehold.co/100x100/22c55e/ffffff?text=VM" alt="Member">
+                                <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">+18</div>
+                            </div>
+                            <span class="text-xs text-gray-500">20 members</span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-green-500"></i>
+                            <span class="text-xs text-gray-600">Growing rapidly</span>
+                        </div>
+                        <button class="w-full bg-violet-600 text-white py-2.5 rounded-xl font-medium hover:bg-violet-700 transition-all">
+                            Join Group
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-white border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-medium hover:bg-gray-50 transition-all inline-flex items-center gap-2">
+                    <i data-lucide="plus" class="w-5 h-5"></i>
+                    Load More Groups
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Authentication check
+        function checkAuth() {
+            const token = localStorage.getItem('authToken');
+            if (!token || !isTokenValid(token)) {
+                localStorage.removeItem('authToken');
+                window.location.href = 'login.html';
+                return false;
+            }
+            return token;
+        }
+
+        function isTokenValid(token) {
+            try {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                const now = Date.now() / 1000;
+                return payload.exp > now;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        // Load user data
+        async function loadUserData() {
+            const token = checkAuth();
+            if (!token) return;
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    
+                    // Update sidebar user info
+                    const userInitials = user.full_name.split(' ').map(n => n[0]).join('');
+                    document.getElementById('sidebar-user-name').textContent = user.full_name;
+                    document.getElementById('sidebar-avatar').src = user.profile_picture_url || `https://placehold.co/100x100/a78bfa/ffffff?text=${userInitials}`;
+
+                    // Load organization data if user has one
+                    if (user.organization_id) {
+                        const orgResponse = await fetch(`http://127.0.0.1:8000/api/organizations/${user.organization_id}`, {
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        
+                        if (orgResponse.ok) {
+                            const org = await orgResponse.json();
+                            document.getElementById('sidebar-org-name').textContent = org.name;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+                if (error.message.includes('401')) {
+                    localStorage.removeItem('authToken');
+                    window.location.href = 'login.html';
+                }
+            }
+        }
+
+        // Group actions
+        function createGroup() {
+            // For now, show alert - later this would open a modal or redirect
+            alert('Create Group functionality coming soon!');
+        }
+
+        function joinGroup() {
+            // For now, show alert - later this would open a modal with group search
+            alert('Join Group functionality coming soon!');
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('search-groups');
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const groupCards = document.querySelectorAll('.group-card');
+                
+                groupCards.forEach(card => {
+                    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                    const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            setupSearch();
+            
+            // Initialize Lucide icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

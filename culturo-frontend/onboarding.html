@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Culturo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                 <a href="index.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+            <!-- Onboarding Sidebar (simplified) -->
+            <nav class="flex-1 px-4 py-6">
+                <p class="px-4 text-lg font-bold text-gray-800">Getting Started</p>
+                <div class="mt-4 px-4">
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 25%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">1 of 3 steps complete</p>
+                </div>
+            </nav>
+            <!-- User Profile Link & Settings -->
+             <div class="px-4 py-6 border-t border-gray-200">
+                 <a href="profile.html" class="flex items-center gap-3 group">
+                    <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/a78bfa/ffffff?text=AS" alt="User Avatar">
+                    <div>
+                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600">Dr. Anya Sharma</p>
+                        <p class="text-sm text-gray-500">Global University</p>
+                    </div>
+                </a>
+             </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold text-gray-900">Welcome to Culturo!</h1>
+                    <p class="text-gray-500 mt-2 text-lg">Let's complete a few steps to build your network.</p>
+                </div>
+
+                <div class="mt-10 space-y-8">
+                    <!-- Step 1: Complete Your Profile -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm flex items-start gap-6">
+                        <div class="p-3 bg-green-100 text-green-600 rounded-full">
+                            <i data-lucide="check-circle" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="text-xl font-bold text-gray-500">Step 1: Create Your Account</h2>
+                            <p class="text-gray-500">Your account and organization are ready to go.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Find Colleagues -->
+                     <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <div class="flex items-start gap-6">
+                            <div class="p-3 bg-indigo-100 text-indigo-600 rounded-full">
+                                <i data-lucide="users" class="w-8 h-8"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-xl font-bold text-gray-800">Step 2: Find Your Colleagues</h2>
+                                <p class="text-gray-600 mb-4">Connect with other members from Global University.</p>
+                                <div class="space-y-3">
+                                    <!-- Suggested Colleague -->
+                                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                        <div class="flex items-center gap-3">
+                                            <img class="w-10 h-10 rounded-full" src="https://placehold.co/100x100/34d399/ffffff?text=JP" alt="James Park">
+                                            <div>
+                                                <p class="font-semibold text-gray-800">James Park</p>
+                                                <p class="text-sm text-gray-500">Partnership Coordinator</p>
+                                            </div>
+                                        </div>
+                                        <button class="bg-indigo-600 text-white font-semibold px-4 py-1.5 rounded-full text-sm hover:bg-indigo-700">Connect</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Join a Group -->
+                     <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <div class="flex items-start gap-6">
+                            <div class="p-3 bg-indigo-100 text-indigo-600 rounded-full">
+                                <i data-lucide="compass" class="w-8 h-8"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-xl font-bold text-gray-800">Step 3: Discover a Group</h2>
+                                <p class="text-gray-600 mb-4">Join a conversation to get started. Here's one we recommend:</p>
+                                <!-- Suggested Group -->
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div class="flex items-center gap-3">
+                                         <div class="p-2 bg-rose-100 text-rose-600 rounded-lg"><i data-lucide="book-marked" class="w-5 h-5"></i></div>
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Agents in Canada</p>
+                                            <p class="text-sm text-gray-500">145 members</p>
+                                        </div>
+                                    </div>
+                                    <button class="bg-indigo-600 text-white font-semibold px-4 py-1.5 rounded-full text-sm hover:bg-indigo-700">Join</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="dashboard.html" class="bg-indigo-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors transform hover:scale-105">
+                        Go to My Dashboard
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

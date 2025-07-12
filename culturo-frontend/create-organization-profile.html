@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Organization Profile - Culturo</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex min-h-screen items-center justify-center p-4">
+        <div class="w-full max-w-2xl">
+            <div class="mb-8 text-center">
+                <a href="index.html" class="font-bold text-3xl text-gray-900 flex items-center justify-center gap-2">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-lg">
+                <div class="text-center mb-8">
+                    <h1 class="text-2xl font-bold text-gray-900">Create Your Organization's Profile</h1>
+                    <p class="text-gray-500 mt-2">This information will be visible to other members on the platform.</p>
+                </div>
+
+                <form id="create-org-form">
+                    <div class="space-y-6">
+                        
+                        <div>
+                            <label for="org-name" class="block text-sm font-medium text-gray-700 mb-1">Organization Name</label>
+                            <input type="text" id="org-name" placeholder="e.g., Maplewood University" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Organization Type</label>
+                            <fieldset class="mt-2">
+                                <div class="flex gap-8">
+                                    <div class="flex items-center">
+                                        <input id="university" value="University / Institution" name="org-type" type="radio" checked class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <label for="university" class="ml-3 block text-sm font-medium leading-6 text-gray-900">University / Institution</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input id="agent" value="Recruitment Agent" name="org-type" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                        <label for="agent" class="ml-3 block text-sm font-medium leading-6 text-gray-900">Recruitment Agent</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="website" class="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                                <input type="url" id="website" placeholder="https://example.com" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                <input type="text" id="country" placeholder="e.g., Canada" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
+                            </div>
+                        </div>
+
+                        <div>
+                           <label for="about" class="block text-sm font-medium text-gray-700 mb-1">About / Description</label>
+                           <textarea id="about" rows="4" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Briefly describe your organization..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-700 mb-2">We are seeking... (Select all that apply)</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="flex items-center">
+                                    <input name="looking_for" value="Recruitment Agents" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label for="looking-recruitment" class="ml-3 block text-sm font-medium text-gray-700">Recruitment Agents</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input name="looking_for" value="Institutional Partners" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label for="institutional" class="ml-3 block text-sm font-medium text-gray-700">Institutional Partners</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input name="looking_for" value="Program Providers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                    <label for="providers" class="ml-3 block text-sm font-medium text-gray-700">Program Providers</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="flex w-full justify-center rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700">
+                                Save and Continue
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('create-org-form');
+            
+            // 1. Check if the user is logged in
+            const token = localStorage.getItem('culturo_access_token');
+            if (!token) {
+                alert('You must be logged in to create an organization.');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                // 2. Get all the data from the form inputs
+                const name = document.getElementById('org-name').value;
+                const type = document.querySelector('input[name="org-type"]:checked').value;
+                const website = document.getElementById('website').value;
+                const country = document.getElementById('country').value;
+                const description = document.getElementById('about').value;
+                
+                const lookingForCheckboxes = document.querySelectorAll('input[name="looking_for"]:checked');
+                const looking_for = Array.from(lookingForCheckboxes).map(cb => cb.value);
+
+                // 3. Structure the data into the JSON format our API expects
+                const orgData = {
+                    name, type, website, country, description, looking_for
+                };
+
+                const apiUrl = 'http://127.0.0.1:8000/api/organizations';
+
+                try {
+                    // 4. Send the data to the backend, including the security token
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(orgData)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert('Organization created successfully!');
+                        // 5. If successful, redirect to the onboarding page
+                        window.location.href = 'onboarding.html';
+                    } else {
+                        // Handle errors, like if the user already belongs to an org
+                        alert('Error: ' + (data.detail || 'Could not create organization.'));
+                    }
+
+                } catch (error) {
+                    console.error('Connection error:', error);
+                    alert('Could not connect to the server.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Management - IPI</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .sidebar-dark {
+            background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+        }
+
+        .animate-pulse-dot { 
+            animation: pulse 2s infinite; 
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex">
+    <!-- Clean Sidebar -->
+    <aside class="w-72 sidebar-dark flex flex-col">
+        <!-- Logo -->
+        <div class="p-6 border-b border-gray-700">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
+                    <i data-lucide="handshake" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white">IPI</h1>
+                    <p class="text-gray-400 text-sm">Dashboard</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="p-4 border-b border-gray-700">
+            <form action="search-results.html">
+                <div class="relative">
+                    <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                    <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-800 border-transparent text-white placeholder-gray-400 focus:bg-gray-700 focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+            </form>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+            <!-- Dashboard -->
+            <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+
+            <!-- Find Section -->
+            <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+            <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                <span>Find Agents</span>
+            </a>
+            <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="school" class="w-5 h-5"></i>
+                <span>Find Universities</span>
+            </a>
+            <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                <span>Find Events</span>
+            </a>
+
+            <!-- Workspace Section -->
+            <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+            <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-white bg-gray-800 rounded-lg">
+                <i data-lucide="handshake" class="w-5 h-5"></i>
+                <span>Partnerships</span>
+                <span class="ml-auto bg-blue-600 text-white text-xs px-2 py-1 rounded-full" id="nav-partnerships-count">0</span>
+            </a>
+            <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="target" class="w-5 h-5"></i>
+                <span>Targets</span>
+                <span class="ml-auto bg-green-600 text-white text-xs px-2 py-1 rounded-full" id="nav-targets-count">0</span>
+            </a>
+            <a href="tasks.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="check-square" class="w-5 h-5"></i>
+                <span>Tasks</span>
+            </a>
+            <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="users" class="w-5 h-5"></i>
+                <span>Groups</span>
+            </a>
+            <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="message-square" class="w-5 h-5"></i>
+                <span>Messages</span>
+            </a>
+            <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors">
+                <i data-lucide="bell" class="w-5 h-5"></i>
+                <span>Notifications</span>
+                <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse-dot" id="notification-badge">3</span>
+            </a>
+        </nav>
+
+        <!-- User Profile -->
+        <div class="mt-auto p-4 border-t border-gray-700">
+            <a href="profile.html" class="flex items-center gap-3 p-3 hover:bg-gray-800 rounded-lg transition-colors group">
+                <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm" id="sidebar-avatar">GH</div>
+                <div class="flex-1 min-w-0">
+                    <p class="font-semibold text-white group-hover:text-blue-200 transition-colors truncate" id="sidebar-user-name">George Hogan</p>
+                    <p class="text-sm text-gray-400 truncate" id="sidebar-org-name">International Partnership Institute</p>
+                </div>
+            </a>
+            <button onclick="window.location.href='account-settings.html'" class="flex items-center gap-3 px-3 py-2 mt-2 w-full text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition-colors text-sm">
+                <i data-lucide="settings" class="w-4 h-4"></i>
+                <span>Settings</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto p-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">Partnership Management</h1>
+                    <p class="text-gray-500 mt-1">Manage your organization's partnerships and collaboration agreements</p>
+                </div>
+                <div class="flex items-center gap-3 mt-4 md:mt-0">
+                    <button onclick="importPartnerships()" class="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-700 px-4 py-2.5 rounded-lg hover:bg-gray-50 font-medium">
+                        <i data-lucide="upload" class="w-4 h-4"></i>
+                        Import
+                    </button>
+                    <button onclick="exportPartnerships()" class="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-700 px-4 py-2.5 rounded-lg hover:bg-gray-50 font-medium">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Export
+                    </button>
+                    <a href="add-partnership.html" class="inline-flex items-center gap-2 bg-indigo-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-all transform hover:scale-105">
+                        <i data-lucide="plus" class="w-5 h-5"></i>
+                        Add Partnership
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Total Partnerships</p>
+                            <p class="text-3xl font-bold text-gray-900" id="total-count">16</p>
+                            <p class="text-sm text-green-600 mt-1">+2 this month</p>
+                        </div>
+                        <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl">
+                            <i data-lucide="handshake" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Active Partnerships</p>
+                            <p class="text-3xl font-bold text-green-600" id="active-count">12</p>
+                            <p class="text-sm text-gray-500 mt-1">75% of total</p>
+                        </div>
+                        <div class="p-3 bg-green-100 text-green-600 rounded-xl">
+                            <i data-lucide="check-circle" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-500">Pending Partnerships</p>
+                            <p class="text-3xl font-bold text-orange-600" id="pending-count">4</p>
+                            <p class="text-sm text-gray-500 mt-1">25% of total</p>
+                        </div>
+                        <div class="p-3 bg-orange-100 text-orange-600 rounded-xl">
+                            <i data-lucide="clock" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="relative">
+                            <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                            <input id="search-partnerships" type="text" placeholder="Search partnerships by organization name..." 
+                                   class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <select id="status-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="">All Status</option>
+                            <option value="ACTIVE">Active</option>
+                            <option value="PENDING">Pending</option>
+                            <option value="EXPIRED">Expired</option>
+                            <option value="DECLINED">Declined</option>
+                        </select>
+                        <select id="type-filter" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="">All Types</option>
+                            <option value="Student Recruitment">Student Recruitment</option>
+                            <option value="Articulation Agreement">Articulation Agreement</option>
+                            <option value="Joint Program">Joint Program</option>
+                            <option value="Exchange Program">Exchange Program</option>
+                            <option value="Research Collaboration">Research Collaboration</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partnerships Table -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-900">Partnership Agreements</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm text-gray-500" id="results-summary">Showing all partnerships</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('organization')">
+                                    <div class="flex items-center gap-1">
+                                        Organization
+                                        <i data-lucide="chevron-up-down" class="w-4 h-4"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('type')">
+                                    <div class="flex items-center gap-1">
+                                        Type
+                                        <i data-lucide="chevron-up-down" class="w-4 h-4"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('status')">
+                                    <div class="flex items-center gap-1">
+                                        Status
+                                        <i data-lucide="chevron-up-down" class="w-4 h-4"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('endDate')">
+                                    <div class="flex items-center gap-1">
+                                        Agreement End
+                                        <i data-lucide="chevron-up-down" class="w-4 h-4"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Manager</th>
+                                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="partnerships-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Loading state -->
+                            <tr>
+                                <td colspan="6" class="px-6 py-8 text-center text-gray-500">
+                                    <i data-lucide="loader" class="w-6 h-6 mx-auto mb-2 animate-spin"></i>
+                                    <p>Loading partnerships...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Enhanced Pagination -->
+                <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <p class="text-sm text-gray-700">
+                                Showing <span id="showing-start" class="font-medium">1</span> to <span id="showing-end" class="font-medium">10</span> of <span id="total-partnerships" class="font-medium">16</span> partnerships
+                            </p>
+                            <div class="flex items-center gap-2">
+                                <label for="items-per-page" class="text-sm text-gray-600">Show:</label>
+                                <select id="items-per-page" onchange="changeItemsPerPage()" class="border border-gray-300 rounded px-2 py-1 text-sm">
+                                    <option value="5">5</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="text-sm text-gray-600">per page</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="prev-page" onclick="previousPage()" 
+                                    class="px-3 py-2 border border-gray-300 text-gray-500 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled>
+                                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                            </button>
+                            <div class="flex gap-1" id="page-numbers">
+                                <button class="px-3 py-2 bg-indigo-600 text-white rounded-lg font-medium">1</button>
+                                <button class="px-3 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">2</button>
+                            </div>
+                            <button id="next-page" onclick="nextPage()" 
+                                    class="px-3 py-2 border border-gray-300 text-gray-500 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Global variables
+        let allPartnerships = [];
+        let filteredPartnerships = [];
+        let currentPage = 1;
+        const itemsPerPage = 10;
+
+        // Authentication check and page initialization
+        async function initializePage() {
+            const token = localStorage.getItem('authToken') || localStorage.getItem('token') || localStorage.getItem('access_token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            await loadUserData(token);
+            await loadSidebarData(token);
+            await loadPartnerships(token);
+            
+            // Initialize search and filters
+            setupFilters();
+            
+            lucide.createIcons();
+        }
+
+        // Load user data for sidebar
+        async function loadUserData(token) {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.ok) {
+                    const userData = await response.json();
+                    document.getElementById('sidebar-user-name').textContent = userData.full_name || 'User';
+                    document.getElementById('sidebar-org-name').textContent = userData.organization?.name || 'Organization';
+                    
+                    // Update avatar
+                    const avatar = document.getElementById('sidebar-avatar');
+                    if (userData.full_name) {
+                        const initials = userData.full_name.split(' ').map(n => n[0]).join('').toUpperCase();
+                        avatar.textContent = initials;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        // Load sidebar badge counts
+        async function loadSidebarData(token) {
+            try {
+                // Load partnerships count
+                const partnershipsResponse = await fetch('http://127.0.0.1:8000/api/partnerships', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const partnerships = partnershipsResponse.ok ? await partnershipsResponse.json() : [];
+                
+                // Load targets count  
+                const targetsResponse = await fetch('http://127.0.0.1:8000/api/targets', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const targets = targetsResponse.ok ? await targetsResponse.json() : [];
+                
+                // Update badge counts
+                updateNavigationBadges(partnerships.length, targets.length, 3);
+            } catch (error) {
+                console.log('Could not load sidebar counts:', error);
+            }
+        }
+
+        // Update navigation badge counts
+        function updateNavigationBadges(partnershipsCount = 0, targetsCount = 0, notificationsCount = 0) {
+            document.getElementById('nav-partnerships-count').textContent = partnershipsCount;
+            document.getElementById('nav-targets-count').textContent = targetsCount;
+            document.getElementById('notification-badge').textContent = notificationsCount;
+        }
+
+        // Load partnerships from API
+        async function loadPartnerships(token) {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/partnerships', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    allPartnerships = await response.json();
+                    filteredPartnerships = [...allPartnerships];
+                    updateStats();
+                    renderPartnerships();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Error loading partnerships:', error);
+                document.getElementById('partnerships-table-body').innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-8 text-center text-red-500">
+                            <i data-lucide="alert-circle" class="w-6 h-6 mx-auto mb-2"></i>
+                            <p>Error loading partnerships: ${error.message}</p>
+                        </td>
+                    </tr>
+                `;
+                lucide.createIcons();
+            }
+        }
+
+        // Update statistics cards
+        function updateStats() {
+            const total = allPartnerships.length;
+            const active = allPartnerships.filter(p => p.status === 'ACTIVE').length;
+            const pending = allPartnerships.filter(p => p.status === 'PENDING').length;
+            
+            document.getElementById('total-count').textContent = total;
+            document.getElementById('active-count').textContent = active;
+            document.getElementById('pending-count').textContent = pending;
+        }
+
+        // Render partnerships table
+        function renderPartnerships() {
+            const tableBody = document.getElementById('partnerships-table-body');
+            
+            if (filteredPartnerships.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center text-gray-500">
+                            <div class="flex flex-col items-center">
+                                <i data-lucide="inbox" class="w-12 h-12 mb-4 text-gray-300"></i>
+                                <h3 class="text-lg font-medium text-gray-900 mb-2">No partnerships found</h3>
+                                <p class="text-gray-500 mb-4">Get started by creating your first partnership.</p>
+                                <button onclick="window.location.href='add-partnership.html'" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+                                    Add Partnership
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            // Pagination
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedPartnerships = filteredPartnerships.slice(startIndex, endIndex);
+
+            const rows = paginatedPartnerships.map(partnership => {
+                const statusColors = {
+                    'ACTIVE': 'bg-green-100 text-green-800 border-green-200',
+                    'PENDING': 'bg-orange-100 text-orange-800 border-orange-200',
+                    'EXPIRED': 'bg-red-100 text-red-800 border-red-200',
+                    'DECLINED': 'bg-gray-100 text-gray-800 border-gray-200'
+                };
+
+                const endDate = partnership.agreement_end_date ? 
+                    new Date(partnership.agreement_end_date).toLocaleDateString() : 'N/A';
+
+                // Check if partnership is expiring soon (within 30 days)
+                const isExpiringSoon = partnership.agreement_end_date && 
+                    new Date(partnership.agreement_end_date) <= new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+
+                return `
+                    <tr class="hover:bg-gray-50 transition-colors cursor-pointer group" onclick="viewPartnership('${partnership.id}')">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-105 transition-transform">
+                                    <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                                        ${partnership.partner_organization?.name || 'Unknown Organization'}
+                                    </div>
+                                    ${partnership.partner_organization?.country ? `<div class="text-xs text-gray-500 flex items-center gap-1 mt-1"><i data-lucide="map-pin" class="w-3 h-3"></i>${partnership.partner_organization.country}</div>` : ''}
+                                    ${partnership.contact_person ? `<div class="text-xs text-gray-500 flex items-center gap-1 mt-1"><i data-lucide="user" class="w-3 h-3"></i>${partnership.contact_person}</div>` : ''}
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-indigo-500 rounded-full"></div>
+                                <span class="text-sm font-medium text-gray-900">${partnership.agreement_type || 'General Partnership'}</span>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 text-xs font-semibold rounded-full border ${statusColors[partnership.status] || statusColors['PENDING']}">
+                                    ${partnership.status}
+                                </span>
+                                ${isExpiringSoon ? '<i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500" title="Expiring soon"></i>' : ''}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-900 font-medium">${endDate}</div>
+                            ${isExpiringSoon ? '<div class="text-xs text-orange-600 font-medium">Expires soon</div>' : ''}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                    <span class="text-xs font-semibold text-gray-600">
+                                        ${partnership.internal_manager?.full_name ? partnership.internal_manager.full_name.split(' ').map(n => n[0]).join('') : 'UN'}
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-900">${partnership.internal_manager?.full_name || 'Unassigned'}</div>
+                                    <div class="text-xs text-gray-500">Internal Manager</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex items-center justify-end gap-2">
+                                <button onclick="event.stopPropagation(); quickAction('${partnership.id}', 'edit')" 
+                                        class="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors" 
+                                        title="Edit Partnership">
+                                    <i data-lucide="edit-2" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="event.stopPropagation(); quickAction('${partnership.id}', 'message')" 
+                                        class="p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors" 
+                                        title="Send Message">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            tableBody.innerHTML = rows;
+            lucide.createIcons();
+            updatePagination();
+            updateResultsSummary();
+        }
+
+        // Setup search and filter functionality
+        function setupFilters() {
+            const searchInput = document.getElementById('search-partnerships');
+            const statusFilter = document.getElementById('status-filter');
+            const typeFilter = document.getElementById('type-filter');
+
+            function applyFilters() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const statusFilter_value = statusFilter.value;
+                const typeFilter_value = typeFilter.value;
+
+                filteredPartnerships = allPartnerships.filter(partnership => {
+                    const matchesSearch = !searchTerm || 
+                        partnership.partner_organization?.name?.toLowerCase().includes(searchTerm);
+                    const matchesStatus = !statusFilter_value || partnership.status === statusFilter_value;
+                    const matchesType = !typeFilter_value || partnership.agreement_type === typeFilter_value;
+
+                    return matchesSearch && matchesStatus && matchesType;
+                });
+
+                currentPage = 1;
+                renderPartnerships();
+            }
+
+            searchInput.addEventListener('input', applyFilters);
+            statusFilter.addEventListener('change', applyFilters);
+            typeFilter.addEventListener('change', applyFilters);
+        }
+
+        // Update pagination controls
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredPartnerships.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, filteredPartnerships.length);
+
+            document.getElementById('showing-start').textContent = filteredPartnerships.length > 0 ? startIndex + 1 : 0;
+            document.getElementById('showing-end').textContent = endIndex;
+            document.getElementById('total-partnerships').textContent = filteredPartnerships.length;
+
+            // Update pagination buttons
+            document.getElementById('prev-page').disabled = currentPage <= 1;
+            document.getElementById('next-page').disabled = currentPage >= totalPages;
+        }
+
+        // Pagination functions
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPartnerships();
+            }
+        }
+
+        function nextPage() {
+            const totalPages = Math.ceil(filteredPartnerships.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPartnerships();
+            }
+        }
+
+        // Quick action functions
+        function quickAction(partnershipId, action) {
+            switch(action) {
+                case 'edit':
+                    window.location.href = `edit-partnership.html?id=${partnershipId}`;
+                    break;
+                case 'message':
+                    window.location.href = `messages.html?partnership=${partnershipId}`;
+                    break;
+                default:
+                    console.log(`Quick action: ${action} for partnership ${partnershipId}`);
+            }
+        }
+
+        // Enhanced partnership actions with more options
+        function showPartnershipActions(partnershipId) {
+            const partnership = allPartnerships.find(p => p.id === partnershipId);
+            if (!partnership) return;
+
+            const actions = [
+                '📋 View Details',
+                '✏️ Edit Partnership', 
+                '📄 View Documents',
+                '💬 Send Message',
+                '📊 View Analytics',
+                '🔄 Update Status',
+                '📅 Schedule Meeting',
+                '🗑️ Remove Partnership'
+            ];
+            
+            const action = prompt(
+                `Partnership with ${partnership.partner_organization?.name || 'Unknown Organization'}\n\n` +
+                `Select action:\n\n${actions.map((a, i) => `${i + 1}. ${a}`).join('\n')}`
+            );
+            
+            if (action) {
+                const actionIndex = parseInt(action) - 1;
+                if (actionIndex >= 0 && actionIndex < actions.length) {
+                    handlePartnershipAction(partnershipId, actionIndex);
+                }
+            }
+        }
+
+        function handlePartnershipAction(partnershipId, actionIndex) {
+            const actions = [
+                () => viewPartnership(partnershipId),
+                () => window.location.href = `edit-partnership.html?id=${partnershipId}`,
+                () => window.location.href = `partnership-documents.html?id=${partnershipId}`,
+                () => window.location.href = `messages.html?partnership=${partnershipId}`,
+                () => window.location.href = `partnership-analytics.html?id=${partnershipId}`,
+                () => updatePartnershipStatus(partnershipId),
+                () => scheduleMeeting(partnershipId),
+                () => removePartnership(partnershipId)
+            ];
+
+            if (actions[actionIndex]) {
+                actions[actionIndex]();
+            }
+        }
+
+        function updatePartnershipStatus(partnershipId) {
+            const newStatus = prompt('Enter new status (ACTIVE, PENDING, EXPIRED, DECLINED):');
+            if (newStatus && ['ACTIVE', 'PENDING', 'EXPIRED', 'DECLINED'].includes(newStatus.toUpperCase())) {
+                // Here you would make an API call to update the status
+                alert(`Partnership status updated to ${newStatus.toUpperCase()}`);
+                // Refresh the partnerships list
+                const token = localStorage.getItem('authToken') || localStorage.getItem('token') || localStorage.getItem('access_token');
+                if (token) loadPartnerships(token);
+            }
+        }
+
+        function scheduleMeeting(partnershipId) {
+            alert(`Opening calendar to schedule meeting for partnership ${partnershipId}...`);
+            // Here you would integrate with calendar or meeting scheduling
+        }
+
+        function removePartnership(partnershipId) {
+            if (confirm('Are you sure you want to remove this partnership? This action cannot be undone.')) {
+                // Here you would make an API call to delete the partnership
+                alert(`Partnership ${partnershipId} removed successfully.`);
+                // Refresh the partnerships list
+                const token = localStorage.getItem('authToken') || localStorage.getItem('token') || localStorage.getItem('access_token');
+                if (token) loadPartnerships(token);
+            }
+        }
+
+        // Enhanced sorting functionality
+        let currentSort = { column: '', direction: '' };
+
+        function sortTable(column) {
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = 'asc';
+            }
+
+            filteredPartnerships.sort((a, b) => {
+                let aValue, bValue;
+
+                switch(column) {
+                    case 'organization':
+                        aValue = a.partner_organization?.name || '';
+                        bValue = b.partner_organization?.name || '';
+                        break;
+                    case 'type':
+                        aValue = a.agreement_type || '';
+                        bValue = b.agreement_type || '';
+                        break;
+                    case 'status':
+                        aValue = a.status || '';
+                        bValue = b.status || '';
+                        break;
+                    case 'endDate':
+                        aValue = a.agreement_end_date ? new Date(a.agreement_end_date) : new Date(0);
+                        bValue = b.agreement_end_date ? new Date(b.agreement_end_date) : new Date(0);
+                        break;
+                    default:
+                        return 0;
+                }
+
+                if (aValue < bValue) return currentSort.direction === 'asc' ? -1 : 1;
+                if (aValue > bValue) return currentSort.direction === 'asc' ? 1 : -1;
+                return 0;
+            });
+
+            currentPage = 1;
+            renderPartnerships();
+        }
+
+        // Enhanced pagination
+        function changeItemsPerPage() {
+            itemsPerPage = parseInt(document.getElementById('items-per-page').value);
+            currentPage = 1;
+            renderPartnerships();
+        }
+
+        // Update results summary
+        function updateResultsSummary() {
+            const summary = document.getElementById('results-summary');
+            if (filteredPartnerships.length === allPartnerships.length) {
+                summary.textContent = `Showing all ${allPartnerships.length} partnerships`;
+            } else {
+                summary.textContent = `Showing ${filteredPartnerships.length} of ${allPartnerships.length} partnerships`;
+            }
+        }
+
+        function viewPartnership(partnershipId) {
+            window.location.href = `partnership-detail.html?id=${partnershipId}`;
+        }
+
+        function exportPartnerships() {
+            alert('Exporting partnerships to CSV...');
+            console.log('Export partnerships requested');
+        }
+
+        function importPartnerships() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.csv,.xlsx,.xls';
+            input.onchange = function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    alert(`Importing partnerships from ${file.name}...`);
+                    console.log('Import partnerships from file:', file.name);
+                }
+            };
+            input.click();
+        }
+
+        // Initialize page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+</body>
+</html>

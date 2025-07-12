@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Target - Culturo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo -->
+            <div class="h-16 flex items-center justify-center px-4 border-b border-gray-200 flex-shrink-0">
+                 <a href="index.html" class="font-bold text-2xl text-gray-900 flex items-center gap-2">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-600"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Culturo</span>
+                </a>
+            </div>
+            <!-- Search Bar -->
+            <div class="p-4 border-b border-gray-200">
+                <form action="search-results.html">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute top-1/2 left-3 -translate-y-1/2"></i>
+                        <input type="search" placeholder="Search..." class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-gray-100 border-transparent focus:bg-white focus:border-indigo-500 focus:ring-indigo-500">
+                    </div>
+                </form>
+            </div>
+            <!-- Nav Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Find</p>
+                <a href="find-agents.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>Find Agents</span>
+                </a>
+                <a href="find-universities.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="school" class="w-5 h-5"></i>
+                    <span>Find Universities</span>
+                </a>
+                 <a href="find-events.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="calendar-search" class="w-5 h-5"></i>
+                    <span>Find Events</span>
+                </a>
+                 <p class="px-4 pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Workspace</p>
+                <a href="organization-partnerships.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="handshake" class="w-5 h-5"></i>
+                    <span>Partnerships</span>
+                </a>
+                <a href="targets.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="target" class="w-5 h-5"></i>
+                    <span>Targets</span>
+                </a>
+                 <a href="groups.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>Groups</span>
+                </a>
+                 <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+            <!-- User Profile Link & Settings -->
+             <div class="px-4 py-6 border-t border-gray-200">
+                 <a href="profile.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm" id="sidebar-avatar">GH</div>
+                    <div>
+                        <p class="font-semibold text-gray-800 group-hover:text-indigo-600" id="sidebar-user-name">George Hogan</p>
+                        <p class="text-sm text-gray-500" id="sidebar-org-name">Global University</p>
+                    </div>
+                </a>
+                 <a href="account-settings.html" class="flex items-center gap-3 px-4 py-2.5 mt-4 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                    <span>Settings</span>
+                </a>
+             </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="max-w-4xl mx-auto">
+                <!-- Header -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <a href="targets.html" class="text-gray-500 hover:text-gray-700">
+                            <i data-lucide="arrow-left" class="w-6 h-6"></i>
+                        </a>
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-900">Add New Target</h1>
+                            <p class="text-gray-500 mt-1">Add a new organization to your partnership pipeline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Add from Find Results (if coming from URL params) -->
+                <div id="quick-add-banner" class="hidden bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="info" class="w-5 h-5 text-blue-600"></i>
+                            <div>
+                                <p class="text-sm font-medium text-blue-900">Quick Add</p>
+                                <p class="text-sm text-blue-700">Organization details have been pre-filled from your search.</p>
+                            </div>
+                        </div>
+                        <button id="clear-prefill" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            Clear & Start Fresh
+                        </button>
+                    </div>
+                </div>
+
+                <form id="add-target-form" class="space-y-8">
+                    <!-- Organization Information -->
+                    <div class="bg-white rounded-2xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-6">Organization Information</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="org-name" class="block text-sm font-medium text-gray-700 mb-2">Organization Name *</label>
+                                <input type="text" id="org-name" name="org-name" required 
+                                       class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                       placeholder="e.g., University of Toronto">
+                            </div>
+                            
+                            <div>
+                                <label for="org-country" class="block text-sm font-medium text-gray-700 mb-2">Country *</label>
+                                <select id="org-country" name="org-country" required 
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option value="">Select Country</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="China">China</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="India">India</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Netherlands">Netherlands</option>
+                                    <option value="New Zealand">New Zealand</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="South Korea">South Korea</option>
+                                    <option value="Switzerland">Switzerland</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="org-type" class="block text-sm font-medium text-gray-700 mb-2">Organization Type *</label>
+                                <select id="org-type" name="org-type" required 
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option value="">Select Type</option>
+                                    <option value="University">University</option>
+                                    <option value="Community College">Community College</option>
+                                    <option value="Institute">Institute</option>
+                                    <option value="Education Agency">Education Agency</option>
+                                    <option value="Language School">Language School</option>
+                                    <option value="Government Agency">Government Agency</option>
+                                    <option value="Educational Foundation">Educational Foundation</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="partnership-type" class="block text-sm font-medium text-gray-700 mb-2">Partnership Type *</label>
+                                <select id="partnership-type" name="partnership-type" required 
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option value="">Select Partnership Type</option>
+                                    <option value="Student Recruitment">Student Recruitment</option>
+                                    <option value="Joint Program">Joint Program</option>
+                                    <option value="Articulation Agreement">Articulation Agreement</option>
+                                    <option value="Research Collaboration">Research Collaboration</option>
+                                    <option value="Faculty Exchange">Faculty Exchange</option>
+                                    <option value="Study Abroad">Study Abroad</option>
+                                    <option value="Pathway Program">Pathway Program</option>
+                                    <option value="Dual Degree">Dual Degree</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="website-url" class="block text-sm font-medium text-gray-700 mb-2">Website URL</label>
+                                <input type="url" id="website-url" name="website-url" 
+                                       class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                       placeholder="https://www.university.edu">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="bg-white rounded-2xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label for="contact-person" class="block text-sm font-medium text-gray-700 mb-2">Primary Contact</label>
+                                <input type="text" id="contact-person" name="contact-person" 
+                                       class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                       placeholder="e.g., Dr. Sarah Mitchell - International Partnerships Director">
+                            </div>
+                            
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Contact Email</label>
+                                <input type="email" id="contact-email" name="contact-email" 
+                                       class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                       placeholder="sarah.mitchell@university.edu">
+                            </div>
+                            
+                            <div>
+                                <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Contact Phone</label>
+                                <input type="tel" id="contact-phone" name="contact-phone" 
+                                       class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                       placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Target Management -->
+                    <div class="bg-white rounded-2xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-6">Target Management</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label for="priority" class="block text-sm font-medium text-gray-700 mb-2">Priority Level *</label>
+                                <select id="priority" name="priority" required 
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option value="Medium">Medium Priority</option>
+                                    <option value="High">High Priority</option>
+                                    <option value="Low">Low Priority</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="stage" class="block text-sm font-medium text-gray-700 mb-2">Current Stage *</label>
+                                <select id="stage" name="stage" required 
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option value="Research">Research</option>
+                                    <option value="Initial Contact">Initial Contact</option>
+                                    <option value="Discussion">Discussion</option>
+                                    <option value="Proposal">Proposal</option>
+                                    <option value="Negotiation">Negotiation</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="due-date" class="block text-sm font-medium text-gray-700 mb-2">Next Action Due Date</label>
+                                <input type="date" id="due-date" name="due-date" 
+                                       class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            
+                            <div class="md:col-span-3">
+                                <label for="next-action" class="block text-sm font-medium text-gray-700 mb-2">Next Action</label>
+                                <textarea id="next-action" name="next-action" rows="2" 
+                                          class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                          placeholder="e.g., Research their current recruitment partners and program offerings"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div class="bg-white rounded-2xl shadow-sm p-6">
+                        <h2 class="text-xl font-bold text-gray-800 mb-6">Additional Information</h2>
+                        
+                        <div>
+                            <label for="notes" class="block text-sm font-medium text-gray-700 mb-2">Notes</label>
+                            <textarea id="notes" name="notes" rows="4" 
+                                      class="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                                      placeholder="Add any additional information about this organization, their programs, reputation, or specific interests..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col md:flex-row gap-4 md:justify-between">
+                        <button type="submit" class="bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">
+                            <i data-lucide="target" class="w-5 h-5 inline mr-2"></i>
+                            Save Target
+                        </button>
+                        <a href="targets.html" class="bg-gray-200 text-gray-800 font-semibold px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors text-center">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async function() {
+            const token = localStorage.getItem('authToken') || 
+                         localStorage.getItem('access_token') || 
+                         localStorage.getItem('culturo_access_token');
+            
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            try {
+                // Load user data
+                const userResponse = await fetch('http://127.0.0.1:8000/api/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!userResponse.ok) {
+                    if (userResponse.status === 401) {
+                        localStorage.removeItem('authToken');
+                        localStorage.removeItem('access_token');
+                        localStorage.removeItem('culturo_access_token');
+                        window.location.href = 'login.html';
+                        return;
+                    }
+                    throw new Error('Failed to load user data');
+                }
+
+                const user = await userResponse.json();
+                
+                // Update user info and avatars
+                const initials = user.full_name ? 
+                    user.full_name.split(' ').map(n => n[0]).join('').toUpperCase() : 'U';
+                
+                document.getElementById('sidebar-user-name').textContent = user.full_name;
+                document.getElementById('sidebar-avatar').textContent = initials;
+                
+                // Load organization data if user has one
+                if (user.organization_id) {
+                    const orgResponse = await fetch(`http://127.0.0.1:8000/api/organizations/${user.organization_id}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    
+                    if (orgResponse.ok) {
+                        const org = await orgResponse.json();
+                        document.getElementById('sidebar-org-name').textContent = org.name;
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+
+            // Check for URL parameters (pre-fill from Find pages)
+            checkForPrefillData();
+            
+            // Set default due date to 1 week from today
+            setDefaultDueDate();
+        });
+
+        // Check for URL parameters to pre-fill form
+        function checkForPrefillData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.has('name') || urlParams.has('type') || urlParams.has('contact')) {
+                document.getElementById('quick-add-banner').classList.remove('hidden');
+                
+                // Pre-fill form fields
+                if (urlParams.get('name')) {
+                    document.getElementById('org-name').value = urlParams.get('name');
+                }
+                if (urlParams.get('type')) {
+                    document.getElementById('partnership-type').value = urlParams.get('type');
+                }
+                if (urlParams.get('contact')) {
+                    document.getElementById('contact-person').value = urlParams.get('contact');
+                }
+                if (urlParams.get('country')) {
+                    document.getElementById('org-country').value = urlParams.get('country');
+                }
+                if (urlParams.get('website')) {
+                    document.getElementById('website-url').value = urlParams.get('website');
+                }
+                if (urlParams.get('orgType')) {
+                    document.getElementById('org-type').value = urlParams.get('orgType');
+                }
+            }
+        }
+
+        // Set default due date
+        function setDefaultDueDate() {
+            const today = new Date();
+            const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+            const formattedDate = nextWeek.toISOString().split('T')[0];
+            document.getElementById('due-date').value = formattedDate;
+        }
+
+        // Clear pre-filled data
+        document.getElementById('clear-prefill')?.addEventListener('click', function() {
+            document.getElementById('add-target-form').reset();
+            document.getElementById('quick-add-banner').classList.add('hidden');
+            setDefaultDueDate();
+            
+            // Clear URL parameters
+            const url = new URL(window.location);
+            url.search = '';
+            window.history.replaceState({}, '', url);
+        });
+
+        // Form submission
+        document.getElementById('add-target-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const targetData = {
+                target_organization_name: formData.get('org-name'),
+                target_country: formData.get('org-country'),
+                target_type: formData.get('org-type'),
+                partnership_type: formData.get('partnership-type'),
+                website_url: formData.get('website-url'),
+                contact_person: formData.get('contact-person'),
+                contact_email: formData.get('contact-email'),
+                contact_phone: formData.get('contact-phone'),
+                priority: formData.get('priority'),
+                stage: formData.get('stage'),
+                due_date: formData.get('due-date'),
+                next_action: formData.get('next-action'),
+                notes: formData.get('notes')
+            };
+
+            try {
+                const token = localStorage.getItem('authToken') || 
+                             localStorage.getItem('access_token') || 
+                             localStorage.getItem('culturo_access_token');
+
+                const response = await fetch('http://127.0.0.1:8000/api/targets', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(targetData)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Failed to create target');
+                }
+
+                const newTarget = await response.json();
+                alert('Target added successfully!');
+                window.location.href = 'targets.html';
+
+            } catch (error) {
+                console.error('Error creating target:', error);
+                alert('Error creating target: ' + error.message);
+            }
+        });
+
+        // Auto-suggest next action based on stage
+        document.getElementById('stage').addEventListener('change', function() {
+            const stage = this.value;
+            const nextActionField = document.getElementById('next-action');
+            
+            const suggestions = {
+                'Research': 'Research their current partnerships and program offerings',
+                'Initial Contact': 'Send initial introduction email or LinkedIn message',
+                'Discussion': 'Schedule follow-up meeting to discuss partnership opportunities',
+                'Proposal': 'Prepare and send partnership proposal document',
+                'Negotiation': 'Review and negotiate partnership terms and conditions'
+            };
+            
+            if (suggestions[stage] && !nextActionField.value) {
+                nextActionField.value = suggestions[stage];
+            }
+        });
+
+        // Dynamic contact person format suggestion
+        document.getElementById('contact-person').addEventListener('blur', function() {
+            const value = this.value.trim();
+            if (value && !value.includes(' - ') && !value.includes(',')) {
+                // Suggest format if not already formatted
+                this.placeholder = 'e.g., ' + value + ' - Title/Department';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Partnership Institute - Connecting Global Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 50%, #1e3a8a 100%);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-animation:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-animation:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="#" class="font-bold text-gray-900 flex items-center gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="w-6 h-6 rounded-full bg-orange-500"></div>
+                        <div class="w-8 h-12 bg-orange-500 rounded-full mt-1 relative">
+                            <div class="absolute -right-2 top-2 w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center">
+                                <div class="w-6 h-6 grid grid-cols-4 grid-rows-4 gap-0">
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-orange-400"></div>
+                                    <div class="bg-teal-500"></div>
+                                    <div class="bg-orange-400"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-2">
+                            <div class="w-6 h-6 rounded-full bg-teal-600"></div>
+                            <div class="w-8 h-12 bg-teal-600 rounded-full mt-1"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-3xl text-blue-900 leading-none">IPI</span>
+                        <span class="text-xs text-gray-600 font-medium leading-tight">International Partnership Institute</span>
+                    </div>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Platform</a>
+                <a href="#who-we-serve" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Who We Serve</a>
+                <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Solutions</a>
+                <a href="#network" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Global Network</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center gap-3">
+                <a href="login.html" class="hidden md:inline-block text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                    Sign In
+                </a>
+                <a href="signup.html" class="bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
+                    Get Started
+                </a>
+            </div>
+            
+            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-24 pb-16 lg:pt-32 lg:pb-24 relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="floating-animation absolute top-20 left-10 w-16 h-16 bg-white/10 rounded-full"></div>
+            <div class="floating-animation absolute top-40 right-20 w-12 h-12 bg-white/5 rounded-full"></div>
+            <div class="floating-animation absolute bottom-20 left-1/4 w-20 h-20 bg-white/5 rounded-full"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
+                    Connecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-200">Global</span> Education
+                </h1>
+                <div class="mb-4">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-100 mb-2">International Partnership Institute</h2>
+                    <p class="text-xl md:text-2xl text-blue-100 leading-relaxed">
+                        The world's premier platform for international education partnerships. Connect universities, agents, and institutions across 150+ countries.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="signup.html" class="bg-orange-500 text-white font-bold px-8 py-4 rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 shadow-xl text-lg">
+                        Join Our Network
+                    </a>
+                    <a href="#platform-demo" class="bg-white/10 backdrop-blur text-white font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all border border-white/20 text-lg">
+                        See How It Works
+                    </a>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-orange-300">500+</div>
+                        <div class="text-blue-200">Universities</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-orange-300">150+</div>
+                        <div class="text-blue-200">Countries</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-orange-300">2,000+</div>
+                        <div class="text-blue-200">Education Agents</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-orange-300">50K+</div>
+                        <div class="text-blue-200">Students Placed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Serve Section -->
+    <section id="who-we-serve" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Who We Serve</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    IPI brings together the entire international education ecosystem on one powerful platform
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="graduation-cap" class="w-10 h-10 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Universities & Institutions</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Connect with verified education agents, manage recruitment partnerships, and expand your international student pipeline.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Agent Discovery & Verification</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Partnership Management</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Performance Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="users" class="w-10 h-10 text-orange-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Education Agents</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Build credibility, discover new university partnerships, and access exclusive opportunities in global markets.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-orange-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">University Partner Discovery</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-orange-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Professional Verification</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-orange-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Market Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-20 h-20 bg-purple-50 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="building-2" class="w-10 h-10 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Education Organizations</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Government bodies, accreditation agencies, and education networks facilitating global education cooperation.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-purple-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Network Oversight</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-purple-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Quality Assurance</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="w-3 h-3 text-purple-600"></i>
+                            </div>
+                            <span class="text-gray-700 font-medium">Industry Insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">One Platform, Endless Possibilities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Everything you need to build, manage, and scale your international education partnerships
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-blue-50 rounded-xl p-6 text-center">
+                        <i data-lucide="search" class="w-8 h-8 text-blue-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-gray-900">Smart Discovery</h4>
+                        <p class="text-sm text-gray-600 mt-2">Find perfect partners with AI-powered matching</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-xl p-6 text-center">
+                        <i data-lucide="handshake" class="w-8 h-8 text-orange-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-gray-900">Partnership CRM</h4>
+                        <p class="text-sm text-gray-600 mt-2">Manage relationships from first contact to graduation</p>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-6 text-center">
+                        <i data-lucide="bar-chart" class="w-8 h-8 text-green-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-gray-900">Analytics Hub</h4>
+                        <p class="text-sm text-gray-600 mt-2">Track performance with real-time insights</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-6 text-center">
+                        <i data-lucide="calendar" class="w-8 h-8 text-purple-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-gray-900">Event Network</h4>
+                        <p class="text-sm text-gray-600 mt-2">Connect at global education events and conferences</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Built for Global Scale</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Our platform handles the complexity of international education partnerships, from compliance and verification to performance tracking and payment processing.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="shield-check" class="w-3 h-3 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-900">Verified Network</h5>
+                                <p class="text-gray-600">All partners undergo rigorous verification and background checks</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="globe" class="w-3 h-3 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-900">Global Compliance</h5>
+                                <p class="text-gray-600">Built-in compliance tools for international education regulations</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="zap" class="w-3 h-3 text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-900">Real-time Integration</h5>
+                                <p class="text-gray-600">Connect with existing CRM, SIS, and recruitment systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section id="solutions" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Solutions for Every Scale</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    From individual agents to large university networks, we have the right plan for your needs
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-blue-500 transition-colors">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Explorer</h3>
+                        <p class="text-gray-400 mb-6">Very limited access - browse events and view basic information only</p>
+                        <div class="text-4xl font-bold mb-2">Free</div>
+                        <div class="text-gray-400 mb-6">per month</div>
+                        <ul class="space-y-3 text-left mb-8">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>Browse events & create profile</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>Limited partner discovery (5/month)</span>
+                            </li>
+                        </ul>
+                        <a href="signup.html" class="block w-full bg-gray-700 text-white font-semibold py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                            Start Explorer Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-600 rounded-2xl p-8 border-2 border-blue-400 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        Most Popular
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                        <p class="text-blue-100 mb-6">For growing agencies and medium-sized institutions</p>
+                        <div class="text-4xl font-bold mb-2">$99</div>
+                        <div class="text-blue-200 mb-6">per month</div>
+                        <ul class="space-y-3 text-left mb-8">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-blue-200"></i>
+                                <span>Advanced partner matching</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-blue-200"></i>
+                                <span>Unlimited partnerships</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-blue-200"></i>
+                                <span>Advanced analytics & reporting</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-blue-200"></i>
+                                <span>Priority support</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-blue-200"></i>
+                                <span>API access</span>
+                            </li>
+                        </ul>
+                        <a href="signup.html" class="block w-full bg-white text-blue-600 font-semibold py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                            Start Free Trial
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-purple-500 transition-colors">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                        <p class="text-gray-400 mb-6">For large universities and global education networks</p>
+                        <div class="text-4xl font-bold mb-6">Custom</div>
+                        <ul class="space-y-3 text-left mb-8">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>White-label platform</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>Custom integrations</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>Advanced security & compliance</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>Dedicated account manager</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                                <span>24/7 priority support</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-gray-700 text-white font-semibold py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Network -->
+    <section id="network" class="py-20 bg-gradient-to-br from-blue-50 to-orange-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Global Network Impact</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    See how IPI is transforming international education partnerships worldwide
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">University of Toronto</div>
+                            <div class="text-sm text-gray-500">International Office</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "IPI has revolutionized how we discover and manage education agents. Our international enrollment has grown 300% since joining."
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="users" class="w-6 h-6 text-orange-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Global Education Partners</div>
+                            <div class="text-sm text-gray-500">Education Agent</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The verification system and partnership tools have significantly improved our credibility with universities worldwide."
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="building-2" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">British Education Council</div>
+                            <div class="text-sm text-gray-500">Regulatory Body</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "IPI's compliance features ensure all partnerships meet international standards. It's become essential infrastructure."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 hero-gradient text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Partnerships?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join thousands of universities, agents, and organizations already using IPI to build meaningful international education partnerships.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="signup.html" class="bg-orange-500 text-white font-bold px-8 py-4 rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 shadow-xl text-lg">
+                    Start Your Free Account
+                </a>
+                <a href="#contact" class="bg-white/10 backdrop-blur text-white font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all border border-white/20 text-lg">
+                    Schedule a Demo
+                </a>
+            </div>
+            <p class="text-blue-200 mt-6 text-sm">
+                Start your journey today
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+                    <p class="text-xl text-gray-600">
+                        Ready to discuss how IPI can help your organization? We're here to help.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Email</h4>
+                                    <p class="text-gray-600">partnerships@ipi.global</p>
+                                    <p class="text-gray-600">support@ipi.global</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Phone</h4>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-gray-600">Mon-Fri 9AM-6PM EST</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Headquarters</h4>
+                                    <p class="text-gray-600">123 Education Boulevard</p>
+                                    <p class="text-gray-600">Global City, GC 12345</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-900 mb-4">Regional Offices</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                                <div>🇺🇸 North America</div>
+                                <div>🇬🇧 Europe</div>
+                                <div>🇦🇺 Asia-Pacific</div>
+                                <div>🇸🇬 Southeast Asia</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Organization</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Organization Type</label>
+                                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option>Select organization type</option>
+                                    <option>University/Institution</option>
+                                    <option>Education Agent</option>
+                                    <option>Government/Regulatory Body</option>
+                                    <option>Education Network</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your partnership goals..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="font-bold text-2xl flex items-center gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="relative">
+                                <div class="w-6 h-6 rounded-full bg-orange-400"></div>
+                                <div class="w-8 h-12 bg-orange-400 rounded-full mt-1 relative">
+                                    <div class="absolute -right-2 top-2 w-8 h-8 bg-white rounded-full flex items-center justify-center border-2 border-blue-200">
+                                        <div class="w-5 h-5 grid grid-cols-4 grid-rows-4 gap-0">
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-orange-300"></div>
+                                            <div class="bg-teal-400"></div>
+                                            <div class="bg-orange-300"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="absolute top-0 right-2">
+                                    <div class="w-6 h-6 rounded-full bg-teal-400"></div>
+                                    <div class="w-8 h-12 bg-teal-400 rounded-full mt-1"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-black text-3xl text-white leading-none">IPI</span>
+                                <span class="text-sm text-blue-100 font-medium leading-tight">International Partnership Institute</span>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        International Partnership Institute - Connecting the global education community through verified partnerships and innovative technology.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Platform</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#solutions" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="login.html" class="hover:text-white transition-colors">Sign In</a></li>
+                        <li><a href="signup.html" class="hover:text-white transition-colors">Get Started</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 International Partnership Institute. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+        });
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white/95');
+                header.classList.remove('bg-white/95');
+            }
+        });
+    </script>
+</body>
+</html>
