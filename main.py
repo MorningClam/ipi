@@ -679,3 +679,7 @@ def delete_partnership(
     db.commit()
     
     return {"message": "Partnership removed successfully"}
+# --- ROOT ENDPOINT FOR TESTING ---
+@app.get("/", tags=["Health"])
+def root():
+    return {"message": "IPI backend is live"}
